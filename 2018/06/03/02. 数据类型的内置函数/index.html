@@ -1,0 +1,467 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//shuoit.disqus.com">
+    <link rel="prefetch" href="//disqus.com">
+    <link rel="prefetch" href="//shuoit.disqus.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="DU">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>数据类型的内置函数 - Hexo</title>
+
+<meta name="keywords" content="git, git revert">
+
+<meta name="description " content="来自2019.4.19的笔记：数据类型的内置函数">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+    <!-- 自动广告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4837253996935841",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="//www.googletagmanager.com/gtag/js?id=UA-131527701-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-131527701-1');
+        </script>
+    
+    <!-- put your likes here. -->
+
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="说">说</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">说IT</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个关注技术与人文的IT博客</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/AIRPAN" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/humanities" data-name="人文">人文</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text" readonly="readonly" id="local-search-input-tip" placeholder="读物检索~">
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://www.tangkunyin.com" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://about.tangkunyin.com" target="_blank">DU</a>
+                    <span title="最后编辑于&nbsp;2018-06-03">2018-06-03</span>
+                </p>
+                <p>一个写代码的「伪文人」</p>
+            </div>
+            <h2 class="post-title">数据类型的内置函数</h2>
+            <div class="post-meta">
+                本文共计10988个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="数据类型的内置函数"><a href="#数据类型的内置函数" class="headerlink" title="数据类型的内置函数"></a>数据类型的内置函数</h1><h1 id="字符串-str"><a href="#字符串-str" class="headerlink" title="字符串-str"></a>字符串-str</h1><h3 id="1-字符串相关操作"><a href="#1-字符串相关操作" class="headerlink" title="1. 字符串相关操作"></a>1. 字符串相关操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ 字符串连接符号</span><br><span class="line">* 字符复制操作  </span><br><span class="line">&apos;★&apos; × 10  复制10个小星星</span><br></pre></td></tr></table></figure>
+<p>[] 通过指定位置（索引）来获取指定位置的字符<br>    str[1]  获取第二个位置的字符</p>
+<p>[:] 取片操作</p>
+<pre><code>[:]         获取所有字符
+[开始位置:]     从开始位置获取到字符串的结尾
+[：结束位置] 从字符串的开头截取到字符串结束位置之前（不包含结束位置）
+[开始位置:结束位置] 从字符串的开始位置截取到结束位置之前（不包含结束位置）
+</code></pre><p>r’字符串’</p>
+<pre><code>防止字符串中的转义字符串实现功能，把转义字符当作普通字符使用
+</code></pre><h3 id="2-字符串内置函数"><a href="#2-字符串内置函数" class="headerlink" title="2. 字符串内置函数"></a>2. 字符串内置函数</h3><p>capitalize() 首字母大写<br>格式： str.capitalize()<br>返回值：首字母大写的字符串，仅把整个字符串的第一个字符大写  </p>
+<p>upper() 将所有英文字符变为大写<br>格式：str.upper()<br>返回值：返回所有英文字符大写的字符串 </p>
+<p>lower（） 将所有英文字符变为小写<br>格式：str.lower()<br>返回值：返回所有英文字符小写的字符串  </p>
+<p>swapcase() 大小写互相转换<br>格式：str.swapcase()<br>返回值：转换之后的字符串  </p>
+<p>title() 按照标题格式进行大小写转换（每个单词首字母大写)<br>格式：str.title()<br>返回值：返回所有英文单词首字母大写的字符串  </p>
+<p>len() 计算字符串的字符个数,以后也可以用于计算元组列表等序列<br>格式: len(str)<br>返回值:整型  </p>
+<p>count() 计算一个字符串中出现指定字符串的次数<br>格式：str.count(‘查找的字符串’[,开始位置])<br>返回值:返回整型</p>
+<p>find() 查找字符串中是否具有指定的字符串，==查找不到返回-1==<br>格式：str.find(查找的字符串[，开始位置])<br>返回值:第一次出现的位置</p>
+<p>index() 查找字符串中是否具有指定的字符串，==查找不到直接报错==<br>格式：str.index(查找的字符串[，开始位置])<br>返回值:第一次出现的位置  </p>
+<p>注意：find()和index()功能基本相似 </p>
+<p>startswith() 检测字符串是否以指定的字符串开头<br>格式： str.startswith(‘查找的字符串’[，开始位置])<br>返回值：布尔值 </p>
+<p>endswith() 检测字符串是否以指定的字符串结尾<br>格式： str.endswith(‘查找的字符串’[，开始位置])<br>返回值：布尔值  </p>
+<p>isupper() 检测字符串中字母是否都是大写字母<br>格式：str.isupper()<br>返回值：布尔值  </p>
+<p>islower()检测字符串中的字母是否都是小写字母<br>格式：str.islower()<br>返回值：布尔值  </p>
+<p>isalnum() 检测一个字符串是否都是有数字或者是否都是有字母组成<br>格式：str.isalnum()<br>返回值:布尔值<br>注意：空字符串返回False  </p>
+<p>isalpha() 检测字符串是否都是有字母类型构成，汉字作为字母处理<br>格式：str.isalpha()<br>返回值：布尔值<br>注意：空字符串返回False</p>
+<p>isdigit() 检测字符串是否由纯数字字符组成<br>格式：str.isdigit()<br>返回值：布尔值<br>注意：空字符串返回False  </p>
+<p>isspace() 检测字符串是否完全由空白字符组成<br>格式：str.isspace()<br>返回值：布尔值<br>注意：回车，换行，缩进，空格都可以当作空白字符，空字符串是False</p>
+<p>istitle() 检测字符串是否符合title()的结果，每个单词首字母大写<br>格式：str.istitle()<br>返回值：布尔值  </p>
+<p>isnumeric() 检测字符串是否有纯数字构成<br>格式：str.isnumeric()<br>返回值：布尔值  </p>
+<p>isdecimal(）检测字符串是否完全由十进制字符组成<br>格式：str.isdecimal()<br>返回值：布尔值  </p>
+<p>split() 使用指定的字符将字符串卷拆解成多个字符串<br>格式： str.split(‘用于拆解的字符串’)<br>返回值：列表类型  </p>
+<p>splitlines() 使用\n，\r或者\r\n切割字符串<br>格式：str.splitlines()<br>返回值：列表类型  </p>
+<p>join() 使用指定的字符串将序列中的内容组成新的字符串<br>格式：连接字符串.join(序列)<br>返回值：组成的新的字符串  </p>
+<p>zfill() 0填充操作<br>格式： str.zfill(长度)<br>返回值：填充0的字符串<br>注意：1.填充结果原有内容靠右对齐，前面位数不足使用0来补充，常用于数字类型字符串。  </p>
+<p>center() 将字符串进行居中操作，并且在空白处进行填充<br>格式： str.center(未来字符宽度,空白填充字符)<br>返回值：新的字符串  </p>
+<p>ljust（） 将字符串进行左对齐操作，并且在空白处进行填充<br>格式： str.ljust(未来字符宽度,空白填充字符)<br>返回值：新的字符串  </p>
+<p>rjust() 将字符串进行右对齐操作，并且在空白处进行填充<br>格式： str.rjust(未来字符宽度,空白填充字符)<br>返回值：新的字符串   </p>
+<p>lstrip() 去掉字符串左侧的空白<br>格式： str.lstrip()<br>返回值：字符串  </p>
+<p>rstrip()去掉字符串右侧的空白<br>格式： str.rstrip()<br>返回值：字符串  </p>
+<p>strip()去掉字符串两侧的空白<br>格式： str.strip()<br>返回值：字符串  </p>
+<p>replace() 字符串替换操作<br>格式： str.replace(被替换的字符串,替换字符串)<br>返回值：替换之后的字符串、  </p>
+<p>maketrans() 制作一个字符串映射表，为了给translate函数使用<br>格式:str.maketrans（’被替换的字符串’,’替换字符串’）<br>返回值：字典类型，被替换字符串组成键，替换字符串组成值<br>注意： 两个参数的字符串个数必须一一对应，这里的str不是值字符串，而是真正的str，也可以写空字符串代替str（字符串都是str制作的）  </p>
+<p>translate() 进行字符串翻译操作，类似转换<br>格式：str.translate(映射表)<br>返回值:新的字符串<br>注意:translate用于多字符替换，replace用于长字符串替换  </p>
+<h3 id="3-字符串模块相关内容-string模块"><a href="#3-字符串模块相关内容-string模块" class="headerlink" title="3. 字符串模块相关内容 string模块"></a>3. 字符串模块相关内容 string模块</h3><p>获取所有的空白字符<br>result = string.whitespace<br>print(result)</p>
+<pre><code>\n \r \t   \x0b\x0c
+</code></pre><p>获取ascii码的所有字母表（包含大写和小写）<br>print(string.ascii_letters)  </p>
+<pre><code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+</code></pre><p>获取ascii码中的所有大写字母<br>print(string.ascii_uppercase)  </p>
+<pre><code>ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</code></pre><p>获取ascii码中所有的小写字母<br>print(string.ascii_lowercase)  </p>
+<pre><code>abcdefghijklmnopqrstuvwxyz
+</code></pre><p>获取ascii码中所有10进制数字字符<br>print(string.digits)  </p>
+<pre><code>0123456789
+</code></pre><p>获取八进制所有数字字符<br>print(string.octdigits)  </p>
+<pre><code>01234567
+</code></pre><p>获取十六进制的所有数字字符<br>print(string.hexdigits)  </p>
+<pre><code>0123456789abcdefABCDEF
+</code></pre><p>打印所有可见字符<br>print(string.printable)  </p>
+<pre><code>0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~ 
+</code></pre><p>打印所有标点符号<br>print(string.punctuation)  </p>
+<pre><code>!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~  
+</code></pre><h1 id="列表-list"><a href="#列表-list" class="headerlink" title="列表-list"></a>列表-list</h1><h3 id="1-列表的常用操作"><a href="#1-列表的常用操作" class="headerlink" title="1. 列表的常用操作"></a>1. 列表的常用操作</h3><ol>
+<li><p>创建列表<br>1） 创建空列表<br>列表变量 = []<br>2） 创建单个数据的列表<br>列表变量 = [值]<br>3） 创建多个数据的列表<br>列表变量 = [值,值,值….]</p>
+</li>
+<li><p>列表的特征<br>1） 列表是序列的一种，并且是由序的序列，可以使用有序序列访问方式<br>2） 列表是可以修改的序列<br>3） 列表的数据组成可以是任意一种数据  </p>
+</li>
+<li><p>列表的访问操作<br>1）列表变量：[索引位置]<br>2）添加列表操作：不可以使用索引方式添加<br>3）修改列表操作：列表变量[索引位置] = 新值<br>4）删除列表操作：del 列表变量[索引位置]</p>
+</li>
+<li><p>列表的序列操作  </p>
+</li>
+</ol>
+<ul>
+<li>序列操作包括：索引，分片，序列相加，序列相乘，成员检测，最大值，最小值，长度计算<br>1）索引操作<br>列表 = [值,值，值….]<br>格式： 列表变量[索引]<br>作用:获取列表中指定位置的值<br>2）分片操作<br>  <em>列表 = [值,值,值…]</em><br>  方法1：列表[:]<br>  表示获取列表的所有数据<br>  方法2：列表[开始索引：]<br>  表示丛开始索引位置截取到列表的最后<br>  方法3:列表[:结束索引]<br>  表示从列表的开头截取到结束索引位置之前，不包含结束位置<br>  方法4:列表[开始索引:结束索引]<br>  表示从列表的开始索引位置截取到结束索引位置之前，，不包含结束位置<br>  方法5：列表[开始索引:结束索引:跳步值]<br>  表示从开始索引位置到结束索引位置之间，不包含索引位置，并且获取数据时索引每次+跳步值来获取，默认跳步值为1<br>3）序列相加<br>格式：列表 = 列表1 + 列表2<br>结果：2个列表组成的新列表<br>注意: + 两边必须都是列表才可以运算<br>4） 列表相乘<br>格式： 列表 = 列表1 * 整数<br>结果：将列表重复N分组成新的列表<br>注意： 数字必须为整数<br>5） 成员资格运算<br>格式：数据  in 列表<br>作用：检测数据是否在列表当中<br>返回值：布尔值<br>格式：数据  not in 列表<br>作用：检测数据是不是不再列表当中<br>返回值：布尔值</li>
+</ul>
+<ol start="5">
+<li>列表的遍历<br>1） for … in 遍历<br>for i in 列表:<br>  print(i)<br>2） while循环遍历  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">length = len(列表)</span><br><span class="line">i = 0</span><br><span class="line">while i &lt; length:</span><br><span class="line">    print(列表[i])</span><br><span class="line">    i += 1</span><br><span class="line">```  </span><br><span class="line">3） 双层列表循环  </span><br><span class="line">列表 = [[值1,值2],[值1,值2]，[值1,值2]...]  </span><br><span class="line">格式：</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>for 变量1,变量2 in 列表：<br>        可以使用变量1和变量2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5. 列表内涵： list content  </span><br><span class="line">1） 简单的列表内涵：  </span><br><span class="line">格式：[[变量 for [变量 in 列表]  </span><br><span class="line">作用：遍历列表中的数据并且组成新的列表，如果需要改变原有数据，在最开始i处修改即可  </span><br><span class="line">结果：新的列表  </span><br><span class="line">2） 带有判断的列表内涵  </span><br><span class="line">格式 [变量 for 变量 in 列表 判断条件]     </span><br><span class="line">作用：遍历列表中的数据，根据判断条件取出符合条件的数据组成新的列表  </span><br><span class="line">结果:新的列表  </span><br><span class="line">3） 多循环带判断的列表内涵  </span><br><span class="line">格式：[[变量1+变量2 for 变量1 in 列表1 for 变量2 in 列表2]  </span><br><span class="line">作用：将列表1中的每个数据和列表2的每个数据进行相加操作，此处可以使用别的操作（变量1+变量2 仅为参考）  </span><br><span class="line">结果：新的列表  </span><br><span class="line">格式：[[变量1+变量2 for 变量1 in 列表1 for 变量2 in 列表2 判断条件]</span><br><span class="line">作用：将列表1中和列表2中每个数据进行操作，但是必须在符合判断条件的前提下进行。</span><br><span class="line">结果：新的列表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6. 序列函数</span><br><span class="line">7. </span><br><span class="line">len() 获取列表的数据长度  </span><br><span class="line">格式：len(列表)  </span><br><span class="line">返回值：整型  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">max() 获取列表中的最大值  </span><br><span class="line">格式：max(列表)  </span><br><span class="line">返回值：列表中的最大值  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">min() 获取列表的最小值  </span><br><span class="line">格式：min(列表)  </span><br><span class="line">返回值：列表中的最小值  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">list() 将其他序列类型转化为列表  </span><br><span class="line">格式：list(序列)  </span><br><span class="line">返回值：列表  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">列表专用函数  </span><br><span class="line">append() 在列表的最后追加新数据  </span><br><span class="line">格式： 列表.append(数据)  </span><br><span class="line">返回值：无</span><br><span class="line">注意：该操作直接改变原有列表  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">insert() 在列表指定的位置插入数据  </span><br><span class="line">格式：列表.insert（索引,数据）  </span><br><span class="line">返回值：无  </span><br><span class="line">注意：该操作直接改变原有列表  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pop() 在列表中移除一个元素  </span><br><span class="line">格式：列表.pop()  </span><br><span class="line">返回值:移除掉的元素  </span><br><span class="line">注意：移除列表最后的元素  </span><br><span class="line"></span><br><span class="line">格式：列表.pop(索引)  </span><br><span class="line">返回值：:移除掉的元素  </span><br><span class="line">注意：移除列表中指定索引的元素  </span><br><span class="line">无论哪种格式都直接改变原有列表  </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">remove() 在列表中移除指定的值的元素  </span><br><span class="line">格式:列表.remove(值)  </span><br><span class="line">返回值：无  </span><br><span class="line">注意：该操作直接改变原有列表  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">clear() 清空列表  </span><br><span class="line">格式：列表.clear()  </span><br><span class="line">返回值：无  </span><br><span class="line">注意：该操作直接改变原有列表  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">reverse() 列表反转  </span><br><span class="line">格式：列表.reverse（）  </span><br><span class="line">返回值：无  </span><br><span class="line">注意：该操作直接改变原有列表  </span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">extend() 在原有列表最后追加新的序列  </span><br><span class="line">格式:列表.extend(序列类型)  </span><br><span class="line">返回值：    无  </span><br><span class="line">注意：该操作直接改变原有列表  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">count() 计算指定值在列表中出现的次数  </span><br><span class="line">格式: 列表.count(值)  </span><br><span class="line">返回值：整数  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">copy() 复制原有列表  </span><br><span class="line">格式: 列表.copy()  </span><br><span class="line">返回值：新的列表  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 元组-tuple</span><br><span class="line">- 元组不具备修改功能。</span><br><span class="line">- 是一种特殊的列表。</span><br><span class="line"></span><br><span class="line">### 元组的操作</span><br><span class="line"></span><br><span class="line">1. 创建元组  </span><br><span class="line">1） 创建空元组  </span><br><span class="line">变量 = ()  </span><br><span class="line">2） 创建单个数据的元组  </span><br><span class="line">变量 = (值,)   或  变量 = 值,  </span><br><span class="line">3） 创建多个数据的元组  </span><br><span class="line">变量 = (值,值，值...)  或者  变量 = 值,值，值...</span><br><span class="line">注意： 元组的关键符号是逗号而不是小括号。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2. 元组的特征  </span><br><span class="line">1） 元组具有序列特定，并且是有序序列  </span><br><span class="line">2） 元组数据值可以访问不可以修改  </span><br><span class="line">3） 元组的数据可以是任意数据类型  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. 序列操作  </span><br><span class="line">- 索引，分片，序列相加，序列相乘，成员资格  </span><br><span class="line">1） 索引操作  </span><br><span class="line">元组[索引位置]  </span><br><span class="line">2） 分片操作</span><br><span class="line">元组[:]   获取元素的所有数据  </span><br><span class="line">元组[开始索引:] 获取开始索引位置到最后的所有数据  </span><br><span class="line">元组[:结束索引]  获取元组开头到结束索引位置之前的所有数据（不包含结束位置）  </span><br><span class="line">元组[开始索引:结束索引]   获取元素开始索引位置到结束索引位置之间的所有数据（不包含结束位置）  </span><br><span class="line">元组[开始索引:结束索引:跳步值]   获取元素开始位置到结束索引之间的指定间隔的数据数据（不包含结束位置）  </span><br><span class="line">3） 相加操作  </span><br><span class="line">新元组 = 元组 + 元组  </span><br><span class="line">4） 相乘操作  </span><br><span class="line">新元组 = 元组 * 整数</span><br><span class="line">5） 成员检测  </span><br><span class="line">数据 in 元组  </span><br><span class="line">检测数据是否在元组当中，在返回True，不再返回False  </span><br><span class="line">数据 not in 元组  </span><br><span class="line">检测数据是否不再元组当中，不再返回True，在返回False</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. 元组的遍历  </span><br><span class="line">1） 普通元组的遍历</span><br></pre></td></tr></table></figure></p>
+<p>for 变量 in 元组：</p>
+<pre><code>使用变量
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2） 多层元组的遍历</span><br></pre></td></tr></table></figure>
+<p>for 变量1,变量2 in 元组：</p>
+<pre><code>使用变量
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5. 元组的函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">len() 获取元组中数据的长度  </span><br><span class="line">格式： len(元组)  </span><br><span class="line">返回值：整数  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">max() 返回元组中最大的值  </span><br><span class="line">格式：max(元组)  </span><br><span class="line">返回值：元组中的最大值  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">min() 返回元组中的最小值  </span><br><span class="line">格式：min(元组)  </span><br><span class="line">返回值：元组中的最小值  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tuple() 将其他序列转化为元组类型  </span><br><span class="line">格式： tuple(任意序列)  </span><br><span class="line">返回值：元组  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6. 元组的方法</span><br><span class="line"></span><br><span class="line">count() 计算指定数据出现的次数  </span><br><span class="line">格式:元组.count(查找的数据)  </span><br><span class="line">返回值：整数  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">index() 获取指定值在元组中的索引位置  </span><br><span class="line">格式：元组.index(查找的数据)  </span><br><span class="line">返回值：索引位置或者错误信息  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">变量交换 （元组特殊用法）  </span><br><span class="line">a = 值1  </span><br><span class="line">b = 值2  </span><br><span class="line">a,b = b,a  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 集合-set</span><br><span class="line">### 集合的创建</span><br><span class="line"></span><br><span class="line">1. 创建空集合  </span><br><span class="line">变量 = set()  </span><br><span class="line"></span><br><span class="line">2. 创建多个数据的集合  </span><br><span class="line">变量 = &#123;值,值,值....&#125;  </span><br><span class="line">注意：集合是内部元素绝对唯一的数据，所以集合中出现多个相同数据时只会保留一份  </span><br><span class="line"></span><br><span class="line">### 集合的特征  </span><br><span class="line">1.集合是一种无序的数据类型，无法通过索引和分片进行操作  </span><br><span class="line">2.集合是内部元素绝对唯一的数据，常常用于去掉重复数据 </span><br><span class="line">3.集合的数据，str，int，float,bool,tuple，冰冻集合。  </span><br><span class="line">### 集合序列操作</span><br><span class="line"></span><br><span class="line">1. 成员检测操作</span><br></pre></td></tr></table></figure>
+<p>数据 in 集合</p>
+<pre><code>检测数据是否在集合当中
+</code></pre><p>数据 not in 集合</p>
+<pre><code>检测数据是否不在集合当中
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2. 集合遍历操作</span><br><span class="line"></span><br><span class="line">1） 普通集合遍历</span><br></pre></td></tr></table></figure>
+<p>集合 = {值,值，值….}</p>
+<p>for 变量 in 集合：<br>    使用变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2） 带有元组的集合遍历</span><br></pre></td></tr></table></figure></p>
+<p>集合 = {（值1,值2..）,(值3,值4..)…}</p>
+<p>for 变量1,变量2.. in 集合:<br>    使用变量1和变量等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3.  集合内涵  </span><br><span class="line">1） 普通集合内涵  </span><br><span class="line">新集合 = &#123;变量 for 变量 in 集合&#125;  </span><br><span class="line">2） 带条件的集合内涵  </span><br><span class="line">新集合 = &#123;变量 for 变量 in 集合 if 条件&#125;  </span><br><span class="line">3） 多循环的集合内涵    </span><br><span class="line">新集合 = &#123;变量1+变量2 for 变量1 in 集合1 for 变量2 in 集合2 if 条件&#125;    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. 集合函数</span><br><span class="line"></span><br><span class="line">len() 获取集合中元素的个数</span><br><span class="line">格式:len(集合)</span><br><span class="line">返回值：整数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">max() 获取集合中最大的元素</span><br><span class="line">格式:max(集合)</span><br><span class="line">返回值：集合中最大的值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">min() 获取集合中最小的元组</span><br><span class="line">格式：min(集合)</span><br><span class="line">返回值：集合中的最小值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set() 将其他序列转化为集合类型</span><br><span class="line">格式：set(序列)</span><br><span class="line">返回值：集合类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">集合函数</span><br><span class="line"></span><br><span class="line">add() 向集合中添加数据</span><br><span class="line">格式： 集合.add(数据)</span><br><span class="line">返回值：无</span><br><span class="line">注意：直接改变原有集合，已存在的数据无法添加</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">clear() 清空集合</span><br><span class="line">格式：集合.clear()</span><br><span class="line">返回值：无</span><br><span class="line">注意：直接改变原有集合</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">copy() 集合复制</span><br><span class="line">格式:集合.copy()</span><br><span class="line">返回值:原集合所有数据组成的新的集合</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">remove() 移除指定的值</span><br><span class="line">格式:集合.remove(值)</span><br><span class="line">返回值：无</span><br><span class="line">注意：直接改变原有集合，如果要删除的值不存在，就报错</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">discard()移除集合中指定的值</span><br><span class="line">格式:集合.discard(值)</span><br><span class="line">返回值：无</span><br><span class="line">注意：直接改变原有集合，如果要删除的值不存在，就不作任何操作</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pop() 随机移除一个元素</span><br><span class="line">格式：集合.pop（）</span><br><span class="line">返回值：被移除的元素</span><br><span class="line">注意：随机移除元素，没啥规律</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">intersection() 计算两个值集合之间的交集</span><br><span class="line">格式： 集合1.intersection(集合2)</span><br><span class="line">返回值：新的集合</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">difference() 计算两个集合之间的差集</span><br><span class="line">格式： 集合1.difference(集合2)</span><br><span class="line">返回值:新的集合</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">union() 计算两个集合之间的并集操作</span><br><span class="line">格式：集合1.union（集合2）</span><br><span class="line">返回值：新的集合</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">issubset() 检测一个集合是否是另外一个集合的子集</span><br><span class="line">格式：集合1.issubset(集合2)</span><br><span class="line">返回值：布尔值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">issuperset() 检测一个集合是否是另外一个和集合的超集</span><br><span class="line">格式：集合1.issuperset(集合2)</span><br><span class="line">返回值：布尔值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">difference_update（） 计算集合1和集合2的差集并且将结果赋值给集合1</span><br><span class="line">格式：集合1.difference_update(集合2)</span><br><span class="line">返回值:无</span><br><span class="line">注意：操作结果直接赋值给集合1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">intersection_update() 计算集合1和集合2的交集并且将结果赋值给集合1</span><br><span class="line">格式：集合1.intersection_update(集合2)</span><br><span class="line">返回值：无</span><br><span class="line">注意:操作结果直接赋值给集合1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">update() 计算集合1和集合2的并集并且将并集结果赋值给集合1</span><br><span class="line">格式：集合1.update(集合2)</span><br><span class="line">返回值:无</span><br><span class="line">注意:操作结果直接赋值给集合1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###  冰冻集合/固定集合 frozen</span><br><span class="line">- 冰冻集合就是不可以进行任何修改相关操作的集合</span><br><span class="line"></span><br><span class="line">1. 创建冰冻集合  </span><br><span class="line">1） 创建空的冰冻集合  </span><br><span class="line">变量 = frozenset()  </span><br><span class="line">2） 创建具有数据的冰冻集合   </span><br><span class="line">变量 = fronzenset(一个序列)  </span><br><span class="line"></span><br><span class="line">2. 操作方法和函数  </span><br><span class="line">冰冻集合的操作相关函数和方法同集合类型一样。</span><br><span class="line">只是不可以使用修改集合相关的方法和函数。  </span><br><span class="line">注意:  </span><br><span class="line">frozenset 和普通的集合一样没有什么本质区别，能够使用的函数数量不一样，仅此而已哦</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#  字典-dict</span><br><span class="line"></span><br><span class="line">### 字典的创建</span><br><span class="line">1. 创建空字典  </span><br><span class="line">变量 = &#123;&#125; 或者 变量 = dict()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2. 创建有数据的字典  </span><br><span class="line">1） 变量 = &#123;键:值,键:值,键:值...&#125;  </span><br><span class="line">2） 变量 = dict(&#123;键:值,键:值,键:值...&#125;)  </span><br><span class="line">3） 变量 = dict(键=值,键=值,键=值...)  </span><br><span class="line">注意：该方法键的名称要符合变量的基本名规则  </span><br><span class="line">4） 变量 = dict([(键,值),(键,值),（键,值）...])  </span><br><span class="line">5） 变量 = dict(zip((键，键，键....),(值,值，值...)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 字典的特征</span><br><span class="line">- 字典也是序列类型但是是无序序列，所以分片操作无法使用</span><br><span class="line"></span><br><span class="line">- 字典中每个数据都由键和值两部分组成：</span><br><span class="line"></span><br><span class="line">- 值：任意数据都可以当作值来使用</span><br><span class="line"></span><br><span class="line">- 键：可以使用 int，float,str,tuple，冰冻集合，但是list，set，dict等不可以使用</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 字典的基本操作</span><br><span class="line"></span><br><span class="line">1. 访问数据：</span><br><span class="line">字典变量[键]</span><br><span class="line"></span><br><span class="line">2. 添加数据</span><br><span class="line">字典变量[新键] = 值</span><br><span class="line"></span><br><span class="line">3. 修改数据</span><br><span class="line">字典变量[键] = 新值</span><br><span class="line"></span><br><span class="line">4. 删除数据</span><br><span class="line">del 字典变量[键]</span><br><span class="line"></span><br><span class="line">5. 序列操作</span><br></pre></td></tr></table></figure></p>
+<p>数据 in 字典</p>
+<pre><code>检测数据是否在字典的键中
+</code></pre><p>数据 not in 字典</p>
+<pre><code>检测数据是否不再字典的键中
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">6. 遍历操作 </span><br><span class="line"></span><br><span class="line">1） 键遍历操作</span><br></pre></td></tr></table></figure>
+<p>for 变量 in 字典:<br>    使用变量(变量就是字典中的键)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2） 键值遍历</span><br></pre></td></tr></table></figure></p>
+<p>for 键变量,值变量 in 字典.items()：<br>    使用键变量和值变量<br><code>`</code></p>
+<ol start="7">
+<li><p>字典内涵<br>1） 基本的字典内涵<br>变量= {key:value for key,value in 字典.items()}<br>2） 带有条件的字典内涵<br>变量 = {key:value for key,value in 字典.items() if 条件}  </p>
+</li>
+<li><p>字典函数</p>
+</li>
+</ol>
+<p>len() 计算字典的长度<br>格式： len(字典)<br>返回值:字典的长度</p>
+<p>max() 获取字典中的最大值 （默认比较字典的键）<br>格式:max(字典)<br>返回值：最大的键</p>
+<p>min() 获取字典中的最小值（默认比较字典的键）<br>格式：min(字典)<br>返回值:最小值</p>
+<p>dict() 将其他序列转化为字典<br>详情请看字典的定义</p>
+<p>str(字典) 返回字典的字符串格式</p>
+<ol start="9">
+<li>字典方法</li>
+</ol>
+<p>clear() 清空字典<br>格式：字典.clear()<br>返回值：无  None<br>注意：直接改变原有字典  </p>
+<p>items() 获取字典的键值对组成的元组格式<br>格式：字典.items()<br>返回值：将键值对变成元组的列表形式。  </p>
+<p>注意:返回的数据是内建的dict_items类型，专用于字典的转换中间类型  </p>
+<p>keys() 获取字典中所有键组成的序列，常用语字典遍历<br>格式： 字典.keys()<br>返回值:返回所有键的组合  </p>
+<p>注意：类型为 dict_keysL类型，也是一种字典转换的中间类型  </p>
+<p>values() 获取字典中所有值组成的序列，常用语字典遍历<br>格式： 字典.values()<br>返回值：所有值的组合<br>注意：类型为dict_values类型，也是一种字典转换的中间类型  </p>
+<p>get（） 根据指定的键获取值<br>格式：字典.get(键,默认值)<br>返回值：字典键对应的数据<br>注意：如果键不存在与字典中，则返回默认值而不会报错  </p>
+<p>pop() 根据键从字典中删除数据<br>格式:字典.pop(键)<br>返回值：删除的键对应的值<br>注意：pop在字典中使用必须有参数，因为字典无序序列，直接改变原有字典  </p>
+<p>copy() 赋值一个字典<br>格式：字典.copy()<br>返回值：复制出来的新的字典  </p>
+<p>setdefault() 设置字典中不存在的键的值<br>格式：字典.setdefault(键,默认值)<br>返回值：设置时的默认值<br>注意：如果设置时键已经存在于字典中，则不进行任何操作，直接改变原有字典  </p>
+<p>fromkeys() 使用指定的序列作为键,使用一个值作为字典的所有值<br>格式:字典.fromkeys(序列,值)<br>返回值：由序列作为字典的键，由值作为所有键对应的值组成的字典  </p>
+<p>update() 使用字典更新另外一个字典<br>格式：字典1.update(字典2)<br>返回值：无<br>注意:直接改变原有字典  </p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/python/">python</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+    
+        <div class="adsense_post_left">
+            
+    <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-4837253996935841" data-ad-slot="1712444257"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="adsense_post_right">
+            
+    <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-4837253996935841" data-ad-slot="6857083436"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <p>
+            
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4837253996935841" data-ad-slot="3228829614" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </p>
+    
+
+
+    
+    
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            var disqus_config = function () {
+                this.page.url = 'http://yoursite.com/2018/06/03/02. 数据类型的内置函数/';
+                this.page.identifier = '2018/06/03/02. 数据类型的内置函数/';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, disqus_shortname = 'shuoit', s = d.createElement('script');
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about" title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助">帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="https://www.tangkunyin.com" target="_blank" rel="friend">DU</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input" spellcheck="false" type="text" autocomplete="off" placeholder="请输入查询关键词">
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '04/19/2019',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+        
+    });
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":300,"height":500},"mobile":{"show":true}});</script></body>
+</html>

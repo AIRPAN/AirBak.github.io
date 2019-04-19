@@ -174,21 +174,21 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="https://about.tangkunyin.com" target="_blank">DU</a>
-                    <span title="最后编辑于&nbsp;2019-04-19">2019-04-19</span>
+                    <span title="最后编辑于&nbsp;2018-06-03">2018-06-03</span>
                 </p>
                 <p>一个写代码的「伪文人」</p>
             </div>
             <h2 class="post-title">Python 语法基础</h2>
             <div class="post-meta">
-                本文共计9720个字 |
+                本文共计9707个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
             <h1 id="python基础语法"><a href="#python基础语法" class="headerlink" title="python基础语法"></a>python基础语法</h1><h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">变量</span><br><span class="line">数据类型</span><br><span class="line">字符串的格式化</span><br><span class="line">表达式和运算符</span><br></pre></td></tr></table></figure>
-<h1 id="python-的变量"><a href="#python-的变量" class="headerlink" title="python 的变量"></a>python 的变量</h1><h3 id="1-变量的声明"><a href="#1-变量的声明" class="headerlink" title="1. 变量的声明"></a>1. 变量的声明</h3><p>var_name = var_value<br>var1 = var2 = var3 = var_value<br>var1,var2,va3 = v1,v2,v3</p>
-<h3 id="2-python中变量值的互换"><a href="#2-python中变量值的互换" class="headerlink" title="2. python中变量值的互换"></a>2. python中变量值的互换</h3><p>两个变量交换值操作<br>a = 1<br>b = 2<br>a,b = b,a </p>
-<h3 id="3-变量的三个常用操作"><a href="#3-变量的三个常用操作" class="headerlink" title="3. 变量的三个常用操作"></a>3. 变量的三个常用操作</h3><ol>
+<h1 id="python-的变量"><a href="#python-的变量" class="headerlink" title="python 的变量"></a>python 的变量</h1><h3 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h3><p>var_name = var_value<br>var1 = var2 = var3 = var_value<br>var1,var2,va3 = v1,v2,v3</p>
+<h3 id="python中变量值的互换"><a href="#python中变量值的互换" class="headerlink" title="python中变量值的互换"></a>python中变量值的互换</h3><p>两个变量交换值操作<br>a = 1<br>b = 2<br>a,b = b,a </p>
+<h3 id="变量的三个常用操作"><a href="#变量的三个常用操作" class="headerlink" title="变量的三个常用操作"></a>变量的三个常用操作</h3><ol>
 <li>获取变量的值 — 可直接通过变量名获取<br>用法：变量名  </li>
 <li>查看数据类型 使用type()函数<br>用法：type(变量名)</li>
 <li>获取变量在内存中的id标识 使用id()函数<br>用法：id(变量名)</li>
@@ -217,7 +217,7 @@
 </ol>
 <p>注意事项：<br>单引号中不可以直接使用单引号 双引号中不可以直接使用双引号 三引号中可以随意使用单双引号</p>
 <ol start="2">
-<li>字符串的转义操作：<br>使用特定格式，表示特定意义和功能的字符就是转义字符。以上三种声明字符串方式均可以转义字符。<br>1) 转义字符    描述<br>(在行尾时) 续行符<br>\  反斜杠符号<br>\’  单引号<br>\”  双引号<br>\a  响铃<br>\b  退格(Backspace)<br>\e  转义<br>\000    空<br>\n  换行<br>\v  纵向制表符<br>\t  横向制表符<br>\r  回车<br>\f  换页<br>\oyy    八进制数，yy代表的字符，例如：\o12代表换行<br>\xyy    十六进制数，yy代表的字符，例如：\x0a代表换行<br>\other  其它的字符以普通格式输出<br>2) 不同的操作系统使用\n和\r进行换行操作，window和linux操作系统<br>window  \n即可<br>linux  \n\r  </li>
+<li>字符串的转义操作：<br>使用特定格式，表示特定意义和功能的字符就是转义字符。以上三种声明字符串方式均可以转义字符。<br>1） 转义字符    描述<br>(在行尾时) 续行符<br>\  反斜杠符号<br>\’  单引号<br>\”  双引号<br>\a  响铃<br>\b  退格(Backspace)<br>\e  转义<br>\000    空<br>\n  换行<br>\v  纵向制表符<br>\t  横向制表符<br>\r  回车<br>\f  换页<br>\oyy    八进制数，yy代表的字符，例如：\o12代表换行<br>\xyy    十六进制数，yy代表的字符，例如：\x0a代表换行<br>\other  其它的字符以普通格式输出<br>2） 不同的操作系统使用\n和\r进行换行操作，window和linux操作系统<br>window  \n即可<br>linux  \n\r  </li>
 </ol>
 <h3 id="List类型-列表"><a href="#List类型-列表" class="headerlink" title="List类型 (列表)"></a>List类型 (列表)</h3><p>列表就是一系列数据的顺序组合.  </p>
 <ol>
@@ -234,13 +234,11 @@
 </ol>
 <h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><p>数据类型转换分为两大类：   </p>
 <ol>
-<li><p>自动类型转换<br>自动类型转换就是在程序需要的时候将数据进行类型改变而进行的操作。<br>特征：<br>1) 自动类型转换由程序 根据需要自动进行，不需要人工干预<br>2) 自动类型转换发生在运算或者判断过程当中<br>3) 类型转换会向着更加精确的类型进行转换  </p>
+<li><p>自动类型转换<br>自动类型转换就是在程序需要的时候将数据进行类型改变而进行的操作。<br>特征：<br>1） 自动类型转换由程序 根据需要自动进行，不需要人工干预<br>2） 自动类型转换发生在运算或者判断过程当中<br>3） 类型转换会向着更加精确的类型进行转换  </p>
 </li>
-<li><p>强制类型转换<br>强制类型转换是根据程序需要，由程序员通过操作强制改变数据的类型。<br>1) int（） 强制将数据转化为整型<br>① 纯数字字符串转化为整型时，类型改变，值不变<br>② 只有纯整数字符串才可以转换，其他均不可以<br>③ 浮点型可以转化为整型，去掉小数点后面的部分<br>2) float() 强制将数据转化为浮点型<br>① 整数字符串和浮点数字符串均可以转化为浮点型<br>② 转化过程中类型改变，值不变<br>③ 整型也可以用于浮点型转换<br>3） complex（） 生成一个复数<br>4） bool() 强制将数据转化为布尔值<br>能够转化为布尔值False的情况：<br>① 字符串 空字符串 ② 整型 0  ③浮点型 0.0 ④ 复数 0+0j ⑤ 布尔值 Flase ⑥ 列表 [] 空列表 ⑦ 元组 () 空元组 ⑧ 字典 {} 空字典 ⑨ 集合 set（）空集合</p>
+<li><p>强制类型转换<br>强制类型转换是根据程序需要，由程序员通过操作强制改变数据的类型。<br>1）int（） 强制将数据转化为整型<br>① 纯数字字符串转化为整型时，类型改变，值不变<br>② 只有纯整数字符串才可以转换，其他均不可以<br>③ 浮点型可以转化为整型，去掉小数点后面的部分<br>2） float() 强制将数据转化为浮点型<br>① 整数字符串和浮点数字符串均可以转化为浮点型<br>② 转化过程中类型改变，值不变<br>③ 整型也可以用于浮点型转换<br>3） complex（） 生成一个复数<br>4） bool() 强制将数据转化为布尔值<br>能够转化为布尔值False的情况：<br>① 字符串 空字符串 ② 整型 0  ③浮点型 0.0 ④ 复数 0+0j ⑤ 布尔值 Flase ⑥ 列表 [] 空列表 ⑦ 元组 () 空元组 ⑧ 字典 {} 空字典 ⑨ 集合 set（）空集合<br>5） str() 字符串类型转换<br>所有数据类型都可以转换为字符串，转换规则就是在原有数据基础上加了引号变成了字符串的格式。<br>例如：[1，2，3] =<br>“[1，2，3]”<br>6） list() 将其他数据转换为列表类型<br>能够进行list转换的数据类型只有4种<br>str 字符串 set 集合<br>tuple 元组 dict 字典<br>所有可以进行list转换的数据必须是iterable数据<br>7）tuple() 将其他数据类型转换为元组类型<br>能够进行tuple转换的数据类型只有4种<br>str 字符串 set 集合<br>list 列表 dict 字典<br>所有可以进行tuple转换的数据必须是iterable数据<br>8）dict() 将其他数据转化为字典类型<br>字典类型转换对于转换数据有严格的要求：<br>可以转化的类型有三种：<br>list  列表<br>tuple 元组<br>set  集合<br>以上所有类型的每个数据必须由元组组成，并且每个元组必须有2个值<br>例子： {(‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’)} [(‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’)] ((‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’))<br>9） set() 集合类型转换<br>能够进行set转换的数据类型只有4种<br>str 字符串 tuple 元组<br>list 列表 dict 字典<br>所有可以进行set转换的数据必须是iterable数据  </p>
 </li>
 </ol>
-<p>5） str() 字符串类型转换<br>所有数据类型都可以转换为字符串，转换规则就是在原有数据基础上加了引号变成了字符串的格式。<br>例如：[1，2，3] =<br>“[1，2，3]”<br>6） list() 将其他数据转换为列表类型<br>能够进行list转换的数据类型只有4种<br>str 字符串 set 集合<br>tuple 元组 dict 字典<br>所有可以进行list转换的数据必须是iterable数据</p>
-<p>7）tuple() 将其他数据类型转换为元组类型<br>能够进行tuple转换的数据类型只有4种<br>str 字符串 set 集合<br>list 列表 dict 字典<br>所有可以进行tuple转换的数据必须是iterable数据<br>8）dict() 将其他数据转化为字典类型<br>字典类型转换对于转换数据有严格的要求：<br>可以转化的类型有三种：<br>list  列表<br>tuple 元组<br>set  集合<br>以上所有类型的每个数据必须由元组组成，并且每个元组必须有2个值<br>例子： {(‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’)} [(‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’)] ((‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’))<br>9） set() 集合类型转换<br>能够进行set转换的数据类型只有4种<br>str 字符串 tuple 元组<br>list 列表 dict 字典<br>所有可以进行set转换的数据必须是iterable数据  </p>
 <h1 id="字符串的格式化"><a href="#字符串的格式化" class="headerlink" title="字符串的格式化"></a>字符串的格式化</h1><ul>
 <li>利用百分号 %</li>
 <li>利用format函数 </li>
@@ -271,8 +269,8 @@ i love KIOVEN
 <li>算数运算  +  -  *  /  %(取余)  //(地板除，取商)  **幂运算<br> 注意：python中没有自增自减的 ++ 或者– 运算</li>
 <li>比较运算 ==  ！=  &gt;   &lt;   &gt;=  &lt;=<br> 注意：在python中没有 === 和 ！== 运算，只要类型不同就是不等于</li>
 <li>赋值运算 =   +=  -=  <em>=  /=  //= **=<br> 注意：a </em>= b 转换之后的表达式为 a = a * b 无论何种赋值运算都符合这个格式      </li>
-<li>逻辑运算<br>逻辑运算是布尔值之间的运算。<br>①.  and 与运算：有假则假<br>②. or 或运算：有真则真<br>③. not 非运算:真变假，假变真</li>
-<li>位运算<br>位运算就是在二进制基础上进行的逻辑运算，将0视为False，将1 视为True进行的运算<br>1） &amp;   按位与运算:将数据转化为2进制数据然后进行每个位上的逻辑与运算<br>2 ）|   按位或运算:将数据转化为2进制数据然后进行每个位上的逻辑或运算<br>3） ～   按位非运算:将数据转化为2进制数据然后进行每个位上的逻辑非运算<br>注意：按位非运算之后计算机会进行反码和补码的相关操作之后进行数据存储。<br>4）  ^   按位抑或运算:将数据转化为2进制数据然后进行每个位上的逻辑抑或运算<br>变量 = 值1 ^ 值2<br>5） 左移运算:将数据转化为二进制之后，将二进制数据的所有数据向左移动指定的位数<br>变量 = 值  &lt;&lt;  移动位数<br>特征：左移N位相当于乘以2的N次方，此方法速度远高于乘法<br>6） 右移运算<br>将数据转化为二进制之后，将二进制数据的所有数据向右移动指定的位数，如果数据移除右侧边界，则会被删除，实际上相当于采用了地板除！<br>变量 = 值 &gt;&gt;  移动位数<br>特征：右移N位相当于除以2的N次方，舍弃小数部分。此方法速度远高于除法 </li>
+<li>逻辑运算<br>逻辑运算是布尔值之间的运算<br>①. and 与运算：有假则假<br>②. or 或运算：有真则真<br>③. not 非运算:真变假，假变真  </li>
+<li>位运算<br>位运算就是在二进制基础上进行的逻辑运算，将0视为False，将1 视为True进行的运算<br>1） &amp;   按位与运算:将数据转化为2进制数据然后进行每个位上的逻辑与运算<br>2 ）|   按位或运算:将数据转化为2进制数据然后进行每个位上的逻辑或运算<br>3） ～   按位非运算:将数据转化为2进制数据然后进行每个位上的逻辑非运算<br>注意：按位非运算之后计算机会进行反码和补码的相关操作之后进行数据存储<br>4）  ^   按位抑或运算:将数据转化为2进制数据然后进行每个位上的逻辑抑或运算<br>变量 = 值1 ^ 值2<br>5） 左移运算:将数据转化为二进制之后，将二进制数据的所有数据向左移动指定的位数<br>变量 = 值  &lt;&lt;  移动位数<br>特征：左移N位相当于乘以2的N次方，此方法速度远高于乘法<br>6） 右移运算<br>将数据转化为二进制之后，将二进制数据的所有数据向右移动指定的位数，如果数据移除右侧边界，则会被删除，实际上相当于采用了地板除！<br>变量 = 值 &gt;&gt;  移动位数<br>特征：右移N位相当于除以2的N次方，舍弃小数部分。此方法速度远高于除法 </li>
 <li><p>成员运算<br>1） in 检测一个值在指定的序列类型里面<br>格式：  值 in 可迭代序列<br>2） not in 检测一个值是否不再指定的序列里面<br>格式：  值 not in 可迭代序列</p>
 </li>
 <li><p>身份运算<br>1） is 检测值1是不是和值2在内存中是否是同一个值，类似id()功能<br>格式: 数据1 is 数据2<br>2） is not 检测值1是不是和值2在内存中是否不是同一个值，类似id()功能<br>格式:   数据1 is not 数据2 </p>
@@ -399,8 +397,8 @@ i love KIOVEN
              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
              */
             var disqus_config = function () {
-                this.page.url = 'http://yoursite.com/2019/04/19/Python 语法基础/';
-                this.page.identifier = '2019/04/19/Python 语法基础/';
+                this.page.url = 'http://yoursite.com/2018/06/03/01. Python 语法基础/';
+                this.page.identifier = '2018/06/03/01. Python 语法基础/';
             };
             (function () { // DON'T EDIT BELOW THIS LINE
                 var d = document, disqus_shortname = 'shuoit', s = d.createElement('script');
