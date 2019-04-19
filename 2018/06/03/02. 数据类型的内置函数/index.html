@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">数据类型的内置函数</h2>
             <div class="post-meta">
-                本文共计9874个字 |
+                本文共计9875个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
@@ -264,8 +264,10 @@
 </ol>
 <p>1） for … in 遍历<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in 列表:</span><br><span class="line">     print(i)</span><br></pre></td></tr></table></figure></p>
 <p>2） while循环遍历<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">length = len(列表)</span><br><span class="line">i = 0</span><br><span class="line">while i &lt; length:</span><br><span class="line">    print(列表[i])</span><br><span class="line">    i += 1</span><br></pre></td></tr></table></figure></p>
-<p>3） 双层列表循环<br>列表 = [[值1,值2],[值1,值2]，[值1,值2]…]<br>格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for 变量1,变量2 in 列表：  </span><br><span class="line">        可以使用变量1和变量2</span><br></pre></td></tr></table></figure></p>
-<ol start="5">
+<p>3） 双层列表循环<br>列表 = [[值1,值2],[值1,值2]，[值1,值2]…]<br>格式：   </p>
+<pre><code>for 变量1,变量2 in 列表：  
+    可以使用变量1和变量2  
+</code></pre><ol start="5">
 <li>列表内涵： list content<br>1） 简单的列表内涵：<br>格式：[[变量 for [变量 in 列表]<br>作用：遍历列表中的数据并且组成新的列表，如果需要改变原有数据，在最开始i处修改即可<br>结果：新的列表<br>2） 带有判断的列表内涵<br>格式 [变量 for 变量 in 列表 判断条件]<br>作用：遍历列表中的数据，根据判断条件取出符合条件的数据组成新的列表<br>结果:新的列表<br>3） 多循环带判断的列表内涵<br>格式：[[变量1+变量2 for 变量1 in 列表1 for 变量2 in 列表2]<br>作用：将列表1中的每个数据和列表2的每个数据进行相加操作，此处可以使用别的操作（变量1+变量2 仅为参考）<br>结果：新的列表<br>格式：[[变量1+变量2 for 变量1 in 列表1 for 变量2 in 列表2 判断条件]<br>作用：将列表1中和列表2中每个数据进行操作，但是必须在符合判断条件的前提下进行。<br>结果：新的列表</li>
 </ol>
 <ol start="6">
