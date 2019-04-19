@@ -1,0 +1,494 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//shuoit.disqus.com">
+    <link rel="prefetch" href="//disqus.com">
+    <link rel="prefetch" href="//shuoit.disqus.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="DU">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>python 语法基础 - Hexo</title>
+
+<meta name="keywords" content="git, git revert">
+
+<meta name="description " content="来自2019.4.19的笔记：python语法基础">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+    <!-- 自动广告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4837253996935841",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="//www.googletagmanager.com/gtag/js?id=UA-131527701-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-131527701-1');
+        </script>
+    
+    <!-- put your likes here. -->
+
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="说">说</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">说IT</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个关注技术与人文的IT博客</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/humanities" data-name="人文">人文</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text" readonly="readonly" id="local-search-input-tip" placeholder="读物检索~">
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://www.tangkunyin.com" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://about.tangkunyin.com" target="_blank">DU</a>
+                    <span title="最后编辑于&nbsp;2018-06-03">2018-06-03</span>
+                </p>
+                <p>一个写代码的「伪文人」</p>
+            </div>
+            <h2 class="post-title">Python 语法基础</h2>
+            <div class="post-meta">
+                本文共计9720个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="python基础语法"><a href="#python基础语法" class="headerlink" title="python基础语法"></a>python基础语法</h1><h5 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">变量</span><br><span class="line">数据类型</span><br><span class="line">字符串的格式化</span><br><span class="line">表达式和运算符</span><br></pre></td></tr></table></figure>
+<h1 id="python-的变量"><a href="#python-的变量" class="headerlink" title="python 的变量"></a>python 的变量</h1><h3 id="1-变量的声明"><a href="#1-变量的声明" class="headerlink" title="1. 变量的声明"></a>1. 变量的声明</h3><p>var_name = var_value<br>var1 = var2 = var3 = var_value<br>var1,var2,va3 = v1,v2,v3</p>
+<h3 id="2-python中变量值的互换"><a href="#2-python中变量值的互换" class="headerlink" title="2. python中变量值的互换"></a>2. python中变量值的互换</h3><p>两个变量交换值操作<br>a = 1<br>b = 2<br>a,b = b,a </p>
+<h3 id="3-变量的三个常用操作"><a href="#3-变量的三个常用操作" class="headerlink" title="3. 变量的三个常用操作"></a>3. 变量的三个常用操作</h3><ol>
+<li>获取变量的值 — 可直接通过变量名获取<br>用法：变量名  </li>
+<li>查看数据类型 使用type()函数<br>用法：type(变量名)</li>
+<li>获取变量在内存中的id标识 使用id()函数<br>用法：id(变量名)</li>
+</ol>
+<h3 id="系统中保留关键字："><a href="#系统中保留关键字：" class="headerlink" title="系统中保留关键字："></a>系统中保留关键字：</h3><pre><code>[&apos;False&apos;, &apos;None&apos;, &apos;True&apos;, &apos;and&apos;, &apos;as&apos;, &apos;assert&apos;, &apos;break&apos;, &apos;class&apos;, &apos;continue&apos;, &apos;def&apos;, &apos;del&apos;, &apos;elif&apos;, &apos;else&apos;, &apos;except&apos;, &apos;finally&apos;, &apos;for&apos;, &apos;from&apos;, &apos;global&apos;, &apos;if&apos;, &apos;import&apos;, &apos;in&apos;, &apos;is&apos;, &apos;lambda&apos;, &apos;nonlocal&apos;, &apos;not&apos;, &apos;or&apos;, &apos;pass&apos;, &apos;raise&apos;, &apos;return&apos;, &apos;try&apos;, &apos;while&apos;, &apos;with&apos;, &apos;yield&apos;]
+</code></pre><p>查看方式：<br>import keyword   #引入关键字模块<br>keyword.kwlist   #查询python系统当前正在使用的保留关键字 </p>
+<h1 id="Python的数据类型"><a href="#Python的数据类型" class="headerlink" title="Python的数据类型"></a>Python的数据类型</h1><p>Python中可以自定义数据类型,可以具有无限种数据类型。<br>系统默认提供6个标准数据类型：</p>
+<ul>
+<li>Number类型(数值) </li>
+<li>String类型（字符串） </li>
+<li>List类型 (列表) </li>
+<li>tuple类型(元组) </li>
+<li>Dictionary类型(字典) </li>
+<li>Set类型（集合）</li>
+</ul>
+<h3 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h3><p>Number类型主要包含数学相关的数据：一共分为4种小类型：  </p>
+<ol>
+<li>整型<br>整型就是整数。包括正整数负整数和0<br>二进制（0b开头）<br>变量 = 0b10101<br>八进制（0o开头）<br>变量 = 0o777<br>十进制（不需要）<br>变量  = 250<br>十六进制（0x开头）<br>变量 = 0xabcd  </li>
+<li>浮点型<br>浮点型就是小数。<br>使用小数表示浮点数 float1 = 3.141592653<br>科学计数法表示浮点数<br>float2 = 314e-2 # 314*10的-2次方  </li>
+<li>复数<br>什么是复数。 复数由实数和虚数两部分组成，其中真正存在的数字就是实数，假定一个数的平方=-1 那么这个数就是虚数的基本单位<br>表达式方式：<br>163+2j 这就是一个典型的复数<br>使用复数功能结构<br>com2 = complex(15,3)  </li>
+<li>布尔类类型<br>布尔值就是表示确定或者否定的数据类型，只有2个值：True和False 在python当中没有真正的布尔类型，而是使用数字0来表示False，数字1表示True，所以bool是Number类型</li>
+</ol>
+<h3 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h3><p>字符串就是文字类型 </p>
+<ol>
+<li>字符串的声明：<br>1) 单引号声明字符串<br>变量 = ‘值’<br>2) 双引号声明字符串<br>变量 = “值”<br>3) 三引号声明变量<br>变量 = ‘’’值’’’<br>或者<br>变量 = “””值”””<br>三引号声明字符串的方式适合大数据的字符串，多行数据都适合  </li>
+</ol>
+<p>注意事项：<br>单引号中不可以直接使用单引号 双引号中不可以直接使用双引号 三引号中可以随意使用单双引号</p>
+<ol start="2">
+<li>字符串的转义操作：<br>使用特定格式，表示特定意义和功能的字符就是转义字符。以上三种声明字符串方式均可以转义字符。<br>1) 转义字符    描述<br>(在行尾时) 续行符<br>\  反斜杠符号<br>\’  单引号<br>\”  双引号<br>\a  响铃<br>\b  退格(Backspace)<br>\e  转义<br>\000    空<br>\n  换行<br>\v  纵向制表符<br>\t  横向制表符<br>\r  回车<br>\f  换页<br>\oyy    八进制数，yy代表的字符，例如：\o12代表换行<br>\xyy    十六进制数，yy代表的字符，例如：\x0a代表换行<br>\other  其它的字符以普通格式输出<br>2) 不同的操作系统使用\n和\r进行换行操作，window和linux操作系统<br>window  \n即可<br>linux  \n\r  </li>
+</ol>
+<h3 id="List类型-列表"><a href="#List类型-列表" class="headerlink" title="List类型 (列表)"></a>List类型 (列表)</h3><p>列表就是一系列数据的顺序组合.  </p>
+<ol>
+<li>列表格式：<br>变量 = [值,值,值….]<br>例子：<br>list1 = [‘张全蛋’,’赵铁柱’,’王者荣耀’,’英雄联盟’,’AA’,123,12]<br><code>列表的标志符号是[]</code> <h3 id="tuple类型-元组"><a href="#tuple类型-元组" class="headerlink" title="tuple类型(元组)"></a>tuple类型(元组)</h3>元组也是一些列数据的顺序组合，但是所有数据禁止修改，元组是一种特殊的列表</li>
+<li><p>元组格式<br>变量 = (值，值，值…..)<br>或者<br>变量 = 值，值，值…..<br><code>元组的标志符号是逗号不是()</code> </p>
+<h3 id="Dictionary类型-字典"><a href="#Dictionary类型-字典" class="headerlink" title="Dictionary类型(字典)"></a>Dictionary类型(字典)</h3><p>字典类型就是一个完整的数据由标志和值组成的多数据的组合，没有顺序  </p>
+</li>
+<li><p>字典格式：<br>变量 = {键:值,键:值….}<br>键就是标志或者说是目录<br>值就是真实的值<br><code>字典的标志符号是{}</code>  </p>
+</li>
+</ol>
+<h3 id="Set类型（集合）"><a href="#Set类型（集合）" class="headerlink" title="Set类型（集合）"></a>Set类型（集合）</h3><p>集合就是一组数据的无序组合。集合中的数据永远是唯一的数据</p>
+<ol>
+<li>集合的格式：<br>变量 = {值,值,值…}<br>没有特定的标识符号就是和字典一样使用{}  </li>
+</ol>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><p>数据类型转换分为两大类：   </p>
+<ol>
+<li><p>自动类型转换<br>自动类型转换就是在程序需要的时候将数据进行类型改变而进行的操作。<br>特征：<br>1) 自动类型转换由程序 根据需要自动进行，不需要人工干预<br>2) 自动类型转换发生在运算或者判断过程当中<br>3) 类型转换会向着更加精确的类型进行转换  </p>
+</li>
+<li><p>强制类型转换<br>强制类型转换是根据程序需要，由程序员通过操作强制改变数据的类型。<br>1) int（） 强制将数据转化为整型<br>① 纯数字字符串转化为整型时，类型改变，值不变<br>② 只有纯整数字符串才可以转换，其他均不可以<br>③ 浮点型可以转化为整型，去掉小数点后面的部分<br>2) float() 强制将数据转化为浮点型<br>① 整数字符串和浮点数字符串均可以转化为浮点型<br>② 转化过程中类型改变，值不变<br>③ 整型也可以用于浮点型转换<br>3） complex（） 生成一个复数<br>4） bool() 强制将数据转化为布尔值<br>能够转化为布尔值False的情况：<br>① 字符串 空字符串 ② 整型 0  ③浮点型 0.0 ④ 复数 0+0j ⑤ 布尔值 Flase ⑥ 列表 [] 空列表 ⑦ 元组 () 空元组 ⑧ 字典 {} 空字典 ⑨ 集合 set（）空集合</p>
+</li>
+</ol>
+<p>5） str() 字符串类型转换<br>所有数据类型都可以转换为字符串，转换规则就是在原有数据基础上加了引号变成了字符串的格式。<br>例如：[1，2，3] =<br>“[1，2，3]”<br>6） list() 将其他数据转换为列表类型<br>能够进行list转换的数据类型只有4种<br>str 字符串 set 集合<br>tuple 元组 dict 字典<br>所有可以进行list转换的数据必须是iterable数据</p>
+<p>7）tuple() 将其他数据类型转换为元组类型<br>能够进行tuple转换的数据类型只有4种<br>str 字符串 set 集合<br>list 列表 dict 字典<br>所有可以进行tuple转换的数据必须是iterable数据<br>8）dict() 将其他数据转化为字典类型<br>字典类型转换对于转换数据有严格的要求：<br>可以转化的类型有三种：<br>list  列表<br>tuple 元组<br>set  集合<br>以上所有类型的每个数据必须由元组组成，并且每个元组必须有2个值<br>例子： {(‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’)} [(‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’)] ((‘aa’,’AA’),(‘bb’,’BB’),(‘cc’,’CC’))<br>9） set() 集合类型转换<br>能够进行set转换的数据类型只有4种<br>str 字符串 tuple 元组<br>list 列表 dict 字典<br>所有可以进行set转换的数据必须是iterable数据  </p>
+<h1 id="字符串的格式化"><a href="#字符串的格式化" class="headerlink" title="字符串的格式化"></a>字符串的格式化</h1><ul>
+<li>利用百分号 %</li>
+<li>利用format函数 </li>
+</ul>
+<h3 id="利用百分号格式化"><a href="#利用百分号格式化" class="headerlink" title="利用百分号格式化"></a>利用百分号格式化</h3><ul>
+<li>%d 此处应该放入一个整数</li>
+<li>%s 放入一个字符串 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"i love %s"</span></span><br><span class="line"><span class="keyword">print</span> (s)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"i love %s"</span>%<span class="string">"KI"</span>)</span><br><span class="line"><span class="keyword">print</span> (s%<span class="string">"KIOVEN"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>i love %s
+i love KI
+i love KIOVEN
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"i am %d years old"</span></span><br><span class="line"><span class="keyword">print</span> (s%<span class="number">18</span>)</span><br><span class="line"><span class="comment"># 如果出现多个占位符，则相应内容需要用括号括起来</span></span><br><span class="line">s = <span class="string">"i am %s,i am %d years old"</span></span><br><span class="line"><span class="keyword">print</span> (s%(<span class="string">"ouwen"</span>,<span class="number">18</span>))</span><br></pre></td></tr></table></figure>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i am <span class="number">18</span> years old</span><br><span class="line">i am ouwen,i am <span class="number">18</span> years old</span><br></pre></td></tr></table></figure>
+<h3 id="利用format格式化"><a href="#利用format格式化" class="headerlink" title="利用format格式化"></a>利用format格式化</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在使用上，以&#123;&#125;和： 代替%号，后面用format带参数完成</span></span><br><span class="line">s = <span class="string">'i love &#123;&#125;'</span>.format(<span class="string">"you"</span>)</span><br><span class="line"><span class="keyword">print</span> (s)</span><br><span class="line"></span><br><span class="line">s = <span class="string">"i am &#123;1&#125; years old,i love &#123;0&#125; and &#123;1&#125; years old"</span>.format(<span class="string">"tulingxueyuan"</span>,<span class="number">24</span>)</span><br><span class="line"><span class="keyword">print</span> (s)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i love you</span><br><span class="line">i am <span class="number">24</span> years old,i love tulingxueyuan <span class="keyword">and</span> <span class="number">24</span> years old</span><br></pre></td></tr></table></figure>
+<h1 id="表达式和运算符"><a href="#表达式和运算符" class="headerlink" title="表达式和运算符"></a>表达式和运算符</h1><h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><p>由变量、运算符、数字、数字分组符号（括号）等以能求得数值的有意义排列方法所得的组合。</p>
+<h3 id="运算符的分类"><a href="#运算符的分类" class="headerlink" title="运算符的分类"></a>运算符的分类</h3><ul>
+<li>算术运算  </li>
+<li>比较运算/关系运算  </li>
+<li>赋值运算  </li>
+<li>逻辑运算  </li>
+<li>位运算  </li>
+<li>成员运算  </li>
+<li>身份运算  </li>
+</ul>
+<ol>
+<li>算数运算  +  -  *  /  %(取余)  //(地板除，取商)  **幂运算<br> 注意：python中没有自增自减的 ++ 或者– 运算</li>
+<li>比较运算 ==  ！=  &gt;   &lt;   &gt;=  &lt;=<br> 注意：在python中没有 === 和 ！== 运算，只要类型不同就是不等于</li>
+<li>赋值运算 =   +=  -=  <em>=  /=  //= **=<br> 注意：a </em>= b 转换之后的表达式为 a = a * b 无论何种赋值运算都符合这个格式      </li>
+<li>逻辑运算<br>逻辑运算是布尔值之间的运算。<br>①.  and 与运算：有假则假<br>②. or 或运算：有真则真<br>③. not 非运算:真变假，假变真</li>
+<li>位运算<br>位运算就是在二进制基础上进行的逻辑运算，将0视为False，将1 视为True进行的运算<br>1） &amp;   按位与运算:将数据转化为2进制数据然后进行每个位上的逻辑与运算<br>2 ）|   按位或运算:将数据转化为2进制数据然后进行每个位上的逻辑或运算<br>3） ～   按位非运算:将数据转化为2进制数据然后进行每个位上的逻辑非运算<br>注意：按位非运算之后计算机会进行反码和补码的相关操作之后进行数据存储。<br>4）  ^   按位抑或运算:将数据转化为2进制数据然后进行每个位上的逻辑抑或运算<br>变量 = 值1 ^ 值2<br>5） 左移运算:将数据转化为二进制之后，将二进制数据的所有数据向左移动指定的位数<br>变量 = 值  &lt;&lt;  移动位数<br>特征：左移N位相当于乘以2的N次方，此方法速度远高于乘法<br>6） 右移运算<br>将数据转化为二进制之后，将二进制数据的所有数据向右移动指定的位数，如果数据移除右侧边界，则会被删除，实际上相当于采用了地板除！<br>变量 = 值 &gt;&gt;  移动位数<br>特征：右移N位相当于除以2的N次方，舍弃小数部分。此方法速度远高于除法 </li>
+<li><p>成员运算<br>1） in 检测一个值在指定的序列类型里面<br>格式：  值 in 可迭代序列<br>2） not in 检测一个值是否不再指定的序列里面<br>格式：  值 not in 可迭代序列</p>
+</li>
+<li><p>身份运算<br>1） is 检测值1是不是和值2在内存中是否是同一个值，类似id()功能<br>格式: 数据1 is 数据2<br>2） is not 检测值1是不是和值2在内存中是否不是同一个值，类似id()功能<br>格式:   数据1 is not 数据2 </p>
+</li>
+<li><p>检测数据归属<br>1) type() 测试时可以使用，开发尽量避免使用<br>格式：type(变量)<br>2) isinstance() 检测一个数据是否由指定的类型创建<br>格式：isinstance(变量，检测的类型)  </p>
+</li>
+<li><p>运算优先级问题  </p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">**  指数 (最高优先级)  </span><br><span class="line">~ + -   按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)  </span><br><span class="line">* / % //    乘，除，取模和取整除  </span><br><span class="line">+ - 加法减法  </span><br><span class="line">&gt;&gt; &lt;&lt;   右移，左移运算符  </span><br><span class="line">&amp;   位 <span class="string">'AND'</span>  </span><br><span class="line">^ | 位运算符  </span><br><span class="line">&lt;= &lt; &gt; &gt;=   比较运算符  </span><br><span class="line">== !=    等于运算符  </span><br><span class="line">= %= /= //= -= += *= **=    赋值运算符   </span><br><span class="line"><span class="keyword">is</span> <span class="keyword">is</span> <span class="keyword">not</span>   身份运算符  </span><br><span class="line"><span class="keyword">in</span> <span class="keyword">not</span> <span class="keyword">in</span>   成员运算符  </span><br><span class="line"><span class="keyword">not</span> <span class="keyword">or</span> <span class="keyword">and</span>  逻辑运算符    </span><br><span class="line">注意：我们并不推荐死记硬背优先级，在实际使用中最好使用()解决优先级问题</span><br></pre></td></tr></table></figure>
+<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><ul>
+<li>分支结构</li>
+<li>循环结构<h3 id="分支结构-选择结构"><a href="#分支结构-选择结构" class="headerlink" title="分支结构/选择结构"></a>分支结构/选择结构</h3></li>
+</ul>
+<ol>
+<li>单项分支   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	if 条件表达式：   </span><br><span class="line">		...</span><br><span class="line"> ```  		    </span><br><span class="line">2. 双向分支</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>if 条件表达式:<br>    …<br>else:<br>    …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">特征：   </span><br><span class="line">1) 双向分支有2个区间，分别是True控制的if区间(真区间)和False控制的else区间(假区间)  </span><br><span class="line">2) if区间内容必须完全缩进，否则出现语法问题  </span><br><span class="line">3. 多项分支</span><br></pre></td></tr></table></figure></p>
+<p>if 条件表达式：<br>    …<br>elif 条件表达式:<br>    …<br>elif 条件表达式：<br>    …<br>else:<br>    …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">特征:  </span><br><span class="line">1) 无论什么样的分支，有多少个分支，分支结构只会执行其中一个分支，然后就会结束分支结构   </span><br><span class="line">2) 多项分支的条件判断是自上而下逐个判断的，True就执行这个分支，False就不执行这个分支   </span><br><span class="line">4. 巢状分支  </span><br><span class="line">巢状分支就是多个其他if...else分支的嵌套组合。  </span><br><span class="line">既可以在if区间嵌套，也可以在else区间嵌套或者elif区间嵌套</span><br></pre></td></tr></table></figure></p>
+<p>if x &lt; 5:<br>    print(‘x真的小于5哦’)<br>    if y &lt; 6:<br>        print(‘如果y &lt; 6，我会被输出’)<br>    elif y &gt; 6:<br>        print(‘如果上y大于6，我会被输出’)<br>elif x &gt; 5:<br>    print(‘x大于5’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">注意：：在python中并没有switch...case分支。后期可以使用字典和函数的组合来代替。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 循环结构 </span><br><span class="line">1. while循环</span><br><span class="line">```      </span><br><span class="line">1）格式1：  </span><br><span class="line">while 条件表达式:    </span><br><span class="line">    ...  </span><br><span class="line">2）格式2：</span><br><span class="line">while 条件表达式：  </span><br><span class="line">   ...   </span><br><span class="line">else:   </span><br><span class="line">   ...</span><br><span class="line">3）死循环:</span><br><span class="line">while True:</span><br><span class="line">    ...</span><br><span class="line">```  </span><br><span class="line">2. for循环  </span><br><span class="line">for ... in 循环</span><br></pre></td></tr></table></figure></p>
+<p>1） 格式1:<br>for 变量 in 序列:<br>    。。。<br>2） 格式2:<br>for 变量1,变量2.. in 多层序列：<br>    。。。<br>3） 格式3：<br>for 变量 in 序列：:<br>    。。。<br>else:<br>    。。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 其他流程控制语句  </span><br><span class="line">1) break 破坏，结束，打破  </span><br><span class="line">作用：结束程序循环，一旦程序执行了break语句，那么当前break所在的循环就会被终止。  </span><br><span class="line">2) continue 继续  </span><br><span class="line">作用：结束本次循环，开始下一次的循环，他不会终止整个循环，仅对于循环中的某次循环有效  </span><br><span class="line">3) pass 通过，忽略  </span><br><span class="line">作用：在程序结构中有时不需用写任何python内容，但是如果没有内容，语言结构会出现语法错误！pass可以作为语法占位符使用，pass语句没有任何意义，也不会做任何操作</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 函数</span><br><span class="line">### 函数的特征</span><br><span class="line">- 函数的定义必须使用def关键字</span><br><span class="line">- 函数不调用不会被执行</span><br><span class="line">### 函数的定义  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 最基本的函数结构</span><br></pre></td></tr></table></figure></p>
+<p>def 函数名()：<br>    …<br>调用函数： 函数名()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. 具有参数的函数结构</span><br></pre></td></tr></table></figure></p>
+<p>def 函数名(参数名，参数名…):<br>    …<br>调用函数: 函数名(值,值…)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">声明函数的()中的参数称之为形参，形参表示形式上的参数  </span><br><span class="line">调用函数的()中的参数称之为实参，实参表示真实的值  </span><br><span class="line">注意:实参传递值给形参的过程，本质上就是普通的变量赋值  </span><br><span class="line">3. 具有默认值参数的函数</span><br></pre></td></tr></table></figure></p>
+<p>def 函数名(形参名 = 默认值,形参名 = 默认值…):<br>    …</p>
+<p>调用函数1：函数名()<br>调用函数2:函数名(实参,实参…)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">注意:具有默认值的函数，调用时如果不提供实参，则会使用形参的默认值执行，如果提供了实参，则使用实参而忽略默认值</span><br><span class="line"></span><br><span class="line">### 函数文档</span><br><span class="line"></span><br><span class="line">函数文档的作用是对当前函数提供使用相关的参考信息。</span><br><span class="line"></span><br><span class="line">1. 查看函数文档：  </span><br><span class="line">1) 使用help(函数名)，可以查看函数文档信息，查看信息时信息会换行  </span><br><span class="line">2) 使用函数名.__doc__的方式查看，查看信息时信息不会换行，会显示\n  </span><br><span class="line">3) 自定义函数文档：  </span><br><span class="line"></span><br><span class="line">在函数内部开始的第一行使用字符串定义文字内容即可</span><br></pre></td></tr></table></figure></p>
+<p>def 函数名()：</p>
+<pre><code>&apos;此处书写函数文档信息，单引号中使用\n换行&apos;
+
+函数中的其他代码...
+函数中的其他代码...
+</code></pre><p>或者</p>
+<p>def 函数名():<br>    ‘’’<br>    此处书写函数文档信息<br>    此处书写函数文档信息<br>    …</p>
+<pre><code>函数中的其他代码...
+函数中的其他代码...
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">### lambda表达式</span><br><span class="line"></span><br><span class="line">lambda表达式就是一种简洁格式的函数而已。lambda不是一种函数结构，只是一种表达式而且不需要函数名。（匿名函数）  </span><br><span class="line">格式：</span><br><span class="line"></span><br><span class="line">    变量 = lambda 形参,形参...： 功能代码</span><br><span class="line">    </span><br><span class="line">案例：</span><br><span class="line"></span><br><span class="line">    lambda x,y :x*y    # 传入两个参数返回这两个数的乘积、  </span><br><span class="line">    lambda x： 值1  if 条件表达式 else 值2 #根据条件表达式的真假返回值1还是值2  </span><br><span class="line">    </span><br><span class="line">优点：  </span><br><span class="line">1.lambda表达式书写简单，不用def关键字，可惜要用lambda  </span><br><span class="line">2.lambda表达式不需要函数名，省得命名头疼  </span><br><span class="line">3.看起来比较装逼！  </span><br><span class="line"></span><br><span class="line">缺点： </span><br><span class="line">1.lambda表达式功能受限，无法使用循环以及部分流程控制相关语句  </span><br><span class="line">2.lambda表达式不适合较为复杂的程序。  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 关键字参数</span><br></pre></td></tr></table></figure>
+<p>def 函数名(形参名 = 默认值,形参名 = 默认值…):<br>    …</p>
+<p>调用函数：函数名(形参名 = 实参值,形参名 = 实参值…)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">优点:由于实参和形参传递是按照位置一一对应的关系，当参数太多时容易出现参数传错位置的情况 引入关键字参数后，在设置实参时可以指定形参的名称，避免参数传递错误！</span><br><span class="line">### 收集参数</span><br><span class="line">1. 收集参数1 (专用于收集非关键字参数)</span><br></pre></td></tr></table></figure></p>
+<p>def 函数名(*形参名)：<br>    …<br>调用函数： 函数名(实参,实参….)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">注意: </span><br><span class="line">1) 使用收集参数进行形参的书写，需要在形参名之前添加*   </span><br><span class="line">2) *形参格式的收集参数会收集到调用函数时传入的所有没有关键字的形参  </span><br><span class="line">3) 收集参数收集到的最终数据是由所有非关键字实参组成的元组。  </span><br><span class="line">4) 收集参数和普通的参数（关键字参数）可以共存</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>收集参数2 (专门用于收集关键字参数)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名(**args):</span><br><span class="line">    ...</span><br><span class="line">调用函数：函数名(形参名 = 值,形参名=值...)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">注意</span><br><span class="line">1) 使用收集参数收集关键字实参的方法需要在形参名之前加**  </span><br><span class="line">2) **形参格式会收集调用函数时传入函数的所有关键字参数  </span><br><span class="line">3) 收集的所有关键字参数最终组成的数据为字典类型  </span><br><span class="line">4) 关键字参数收集的方式可以和普通形参共存，但是必须在最后</span><br></pre></td></tr></table></figure>
+<p>注意1：普通形参，非关键字收集形参和关键字收集形参具有顺序关系<br>普通形参放最前面<br>非关键字形参放中间<br>关键字形参放最后<br>注意2：所有收集参数只能够收集没有形参接受的实参 </p>
+<h1 id="函数的变量作用域"><a href="#函数的变量作用域" class="headerlink" title="函数的变量作用域"></a>函数的变量作用域</h1><p>全局变量:在函数外部声明的变量就是全局变量<br>局部变量:在函数内部声明的变量就是局部变量  </p>
+<ol>
+<li>局部变量和全局变量的作用范围<br>1) 全局变量在全局范围内可以使用<br>2) 全局变量在局部范围内可以使用(访问)<br>3) 局部变量在局部范围内可以使用<br>4) 局部变量在全局范围内无法正常使用  </li>
+<li>global 关键字<br>global 关键字的作用是提升局部变量为全局变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def 函数名():</span><br><span class="line">		...</span><br><span class="line">    #提升局部变量为全局变量</span><br><span class="line">    global 局部变量</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>全局变量和局部变量同名<br>在此情况下,局部环境中只会使用局部变量,忽略同名的全局变量</p>
+<ol start="3">
+<li>内部函数<br>在函数内部声明的函数就是内部函数<br>特征:<br>1) 内部函数在函数内部可以访问<br>2) 内部函数的调用必须在定义内部函数之后<br>3) 内部函数不可以在函数外部调用<br>4) 本质上内部函数等同于内部变量  </li>
+<li><p>闭包<br>闭包就是将函数内部的局部变量或者内部函数,弄到函数外,并且可以正常使用的特殊方法.突破了局部作用域的限制!<br>注意:闭包少用!<br>闭包格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def 外层函数()：</span><br><span class="line">	局部变量</span><br><span class="line">	局部变量</span><br><span class="line"></span><br><span class="line">   def 内部函数()：</span><br><span class="line">		pass</span><br><span class="line">	return (局部变量，局部变量...内部函数,内部函数...)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nonlocal关键字<br>nonlocal的作用是声明当前变量不是当前函数内部的变量，他有可能是当前函数的外部变量（不是全局变量）</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def 外部函数()</span><br><span class="line"></span><br><span class="line">    局部变量</span><br><span class="line"></span><br><span class="line">    def 内部函数（）:</span><br><span class="line"></span><br><span class="line">        nonlocal 变量名#声明当前变量不是内部函数中的变量</span><br><span class="line"></span><br><span class="line">        其他代码...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 代码</span><br></pre></td></tr></table></figure>
+<h1 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h1><p>在函数中调用当前函数本身的函数就是递归函数。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def recursion(n):</span><br><span class="line">    #输出当前的n的值</span><br><span class="line">    print(n)</span><br><span class="line"></span><br><span class="line">    #判断n的值是否&gt;0,决定下一步操作</span><br><span class="line">    if n&gt;0:        #n&gt;0 在此调用当前函数digui，将n - 1放进去</span><br><span class="line">        recursion(n-1)</span><br><span class="line">    else:</span><br><span class="line">        #n&gt;0 为False 输出分隔线</span><br><span class="line">        print(&apos;------&apos;)</span><br><span class="line"></span><br><span class="line">    #再次输出n的值</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure></p>
+<p>recursion(3)</p>
+<p>执行结果:</p>
+<pre><code>3 2 1 0 ----- 0 1 2 3 
+</code></pre>
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/python/">python</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+    
+        <div class="adsense_post_left">
+            
+    <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-4837253996935841" data-ad-slot="1712444257"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="adsense_post_right">
+            
+    <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-4837253996935841" data-ad-slot="6857083436"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <p>
+            
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4837253996935841" data-ad-slot="3228829614" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </p>
+    
+
+
+    
+    
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            var disqus_config = function () {
+                this.page.url = 'http://yoursite.com/2018/06/03/Python 语法基础/';
+                this.page.identifier = '2018/06/03/Python 语法基础/';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, disqus_shortname = 'shuoit', s = d.createElement('script');
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about" title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助">帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="https://www.tangkunyin.com" target="_blank" rel="friend">唐先森</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input" spellcheck="false" type="text" autocomplete="off" placeholder="请输入查询关键词">
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.json',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+        
+    });
+</script>
+</body>
+</html>
