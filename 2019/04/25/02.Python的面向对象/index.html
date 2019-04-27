@@ -31,11 +31,11 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>python的面向对象 - Hexo</title>
+<title>python 的面向对象 - Hexo</title>
 
 <meta name="keywords" content="git, git revert">
 
-<meta name="description " content="来自2019.4.21的笔记：python语法基础">
+<meta name="description " content="来自2019.4.25的笔记：python 的面向对象">
 
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
@@ -174,30 +174,35 @@
                 </a>
                 <p><span class="label">作者</span>
                     <a href="https://about.tangkunyin.com" target="_blank">DU</a>
-                    <span title="最后编辑于&nbsp;2019-04-21">2019-04-21</span>
+                    <span title="最后编辑于&nbsp;2019-04-25">2019-04-25</span>
                 </p>
                 <p>一个写代码的「伪文人」</p>
             </div>
-            <h2 class="post-title">Python的面向对象</h2>
+            <h2 class="post-title">Python 的面向对象</h2>
             <div class="post-meta">
-                本文共计8102个字 |
+                本文共计15101个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
             <h1 id="OOP-Python面向对象"><a href="#OOP-Python面向对象" class="headerlink" title="OOP-Python面向对象"></a>OOP-Python面向对象</h1><ul>
-<li>Python的面向对象</li>
+<li>Python的面向对象<ul>
+<li>OO</li>
+<li>类的基本实现</li>
+<li>类和对象的成员分析</li>
+<li>self</li>
+</ul>
+</li>
 <li>面向对象编程<ul>
 <li>基础</li>
 <li>公有私有</li>
 <li>继承</li>
-<li>组合，Mixin</li>
-</ul>
-</li>
-<li>魔法函数<ul>
-<li>魔法函数概述</li>
-<li>构造类魔法函数</li>
-<li>运算类魔法函数</li>
+<li>多态、Mixin</li>
+<li>类的相关函数、类的成员描述符、类的内置属性</li>
+<li>魔法函数</li>
+<li>类和对象的三种方法</li>
+<li>抽象类</li>
+<li>自定义类</li>
 </ul>
 </li>
 </ul>
@@ -291,13 +296,14 @@ class_name.__dict__
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Teacher():</span><br><span class="line">    name = &quot;dana&quot;</span><br><span class="line">    age = 19</span><br><span class="line">    </span><br><span class="line">    def say(self):</span><br><span class="line">        self.name = &quot;yaona&quot;</span><br><span class="line">        self.age = 17</span><br><span class="line">        print(&quot;My name is &#123;0&#125;&quot;.format(self.name))</span><br><span class="line">        # 调用类的成员变量需要用 __class__</span><br><span class="line">        print(&quot;My age is &#123;0&#125;&quot;.format(__class__.age))</span><br><span class="line">    def sayAgain():</span><br><span class="line">        print(__class__.name)</span><br><span class="line">        print(__class__.age )</span><br><span class="line">        print(&quot;Hello, nice to see you again&quot;)</span><br><span class="line">        </span><br><span class="line">t = Teacher()</span><br><span class="line">t.say()</span><br><span class="line"></span><br><span class="line"># 调用绑定类函数使用类名</span><br><span class="line">Teacher.sayAgain()</span><br><span class="line"></span><br><span class="line"># 如果类方法中需要访问当前类的成员，可以通过 __class__成员名来访问</span><br><span class="line"></span><br><span class="line">My name is yaona</span><br><span class="line">My age is 19</span><br><span class="line">dana</span><br><span class="line">19</span><br><span class="line">Hello, nice to see you again</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"># 关于self的案例</span><br><span class="line"></span><br><span class="line">class A():</span><br><span class="line">    name = &quot; liuying&quot;</span><br><span class="line">    age = 18</span><br><span class="line">    </span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.name = &quot;aaaa&quot;</span><br><span class="line">        self.age = 200</span><br><span class="line">        </span><br><span class="line">    def say(self):</span><br><span class="line">        print(self.name)</span><br><span class="line">        print(self.age)</span><br><span class="line">        </span><br><span class="line">class B():</span><br><span class="line">    name = &quot;bbbb&quot;</span><br><span class="line">    age = 90</span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line"># 此时，系统会默认把对象a作为第一个参数传入函数</span><br><span class="line">a.say()</span><br><span class="line">   </span><br><span class="line">A.say()    #错误，类实例不会自动传入第一个参数，需要手动传入一个</span><br><span class="line"># 此时，self被a替换</span><br><span class="line">A.say(a)</span><br><span class="line"># 同样可以把A作为参数传入</span><br><span class="line">A.say(A)</span><br><span class="line"></span><br><span class="line"># 此时，传入的是类实例B，因为B具有name和age属性，所以不会报错</span><br><span class="line">A.say(B)</span><br><span class="line"></span><br><span class="line"># 以上代码，利用了鸭子模型</span><br><span class="line"></span><br><span class="line">aaaa</span><br><span class="line">200</span><br><span class="line">aaaa</span><br><span class="line">200</span><br><span class="line"> liuying</span><br><span class="line">18</span><br><span class="line">bbbb</span><br><span class="line">90</span><br></pre></td></tr></table></figure>
-<h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h2 id="1-面向对象的三大特性"><a href="#1-面向对象的三大特性" class="headerlink" title="1. 面向对象的三大特性"></a>1. 面向对象的三大特性</h2><ul>
+<h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><pre><code>面向对象的三大特性
+</code></pre><ul>
 <li>封装</li>
 <li>继承</li>
 <li>多态</li>
 </ul>
-<h3 id="1-1-封装"><a href="#1-1-封装" class="headerlink" title="1.1 封装"></a>1.1 封装</h3><ul>
-<li>封装就是对对象的成员进行访问限制</li>
+<h2 id="1-封装"><a href="#1-封装" class="headerlink" title="1 封装"></a>1 封装</h2><ul>
+<li>将属性和方法封装到一个抽象的类中</li>
 <li>封装的三个级别：<ul>
 <li>公开，public</li>
 <li>受保护的，protected</li>
@@ -336,7 +342,7 @@ class_name.__dict__
 </ul>
 </li>
 </ul>
-<h2 id="3-2-继承"><a href="#3-2-继承" class="headerlink" title="3.2 继承"></a>3.2 继承</h2><ul>
+<h2 id="2-继承"><a href="#2-继承" class="headerlink" title="2 继承"></a>2 继承</h2><ul>
 <li>继承就是一个类可以获得另外一个类中的成员属性和成员方法</li>
 <li>作用： 减少代码，增加代码的复用功能， 同时可以设置类与类直接的关系</li>
 <li>继承与被继承的概念：<ul>
@@ -424,13 +430,201 @@ class_name.__dict__
 </li>
 </ul>
 </li>
-<li><p>构造函数</p>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">案例：扩展构造函数</span><br><span class="line"></span><br><span class="line">class A():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&quot;A&quot;)</span><br><span class="line"></span><br><span class="line">class B(A):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        print(&quot;B&quot;)</span><br><span class="line">        print(name)</span><br><span class="line">        </span><br><span class="line">class C(B):</span><br><span class="line">    # c中想扩展B的构造函数，</span><br><span class="line">    # 即调用B的构造函数后在添加一些功能</span><br><span class="line">    # 由两种方法实现</span><br><span class="line">    </span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    # 第一种是通过父类名调用</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        # 首先调用父类构造函数</span><br><span class="line">        B.__init__(self, name)</span><br><span class="line">        # 其次，再增加自己的功能</span><br><span class="line">        print(&quot;这是C中附加的功能&quot;)</span><br><span class="line">    &apos;&apos;&apos;  </span><br><span class="line">        </span><br><span class="line">    # 第二种，使用super调用</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        # 首先调用父类构造函数</span><br><span class="line">        super(C, self).__init__(name)</span><br><span class="line">        # 其次，再增加自己的功能</span><br><span class="line">        print(&quot;这是C中附加的功能&quot;)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"># 此时，首先查找C的构造函数</span><br><span class="line"># 如果没有，则向上按照MRO顺序查找父类的构造函数，知道找到为止</span><br><span class="line"># 此时，会出现参数结构不对应错误</span><br><span class="line">c = C(&quot;我是C&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">B</span><br><span class="line">我是C</span><br><span class="line">这是C中附加的功能</span><br></pre></td></tr></table></figure>
+<h2 id="3-多态"><a href="#3-多态" class="headerlink" title="3 多态"></a>3 多态</h2><ul>
+<li>不同的子类对象调用相同的父类方法，产生不同的执行结果</li>
+<li>以继承和重写父类方法为前提</li>
+<li>多态性：同一种调用方式，产生不同的执行效果</li>
+<li><p><a href="https://www.cnblogs.com/luchuangao/p/6739557.html" target="_blank" rel="noopener">多态和多态性</a></p>
+</li>
+<li><p>Mixin设计模式</p>
 <ul>
-<li>在对象进行实例化的时候，系统自动调用的一个函数叫构造函数，通常此函数用来对实例对象进行初始化，顾名</li>
-<li>构造函数一定要有，如果没有，则自动向上查找，按照MRO顺序，直到找到为止</li>
+<li>主要采用多继承方式对类的功能进行扩展</li>
+<li><a href="https://www.zhihu.com/question/20778853" target="_blank" rel="noopener">Mixin概念</a></li>
+<li><a href="http://blog.csdn.net/robinjwong/article/details/48375833" target="_blank" rel="noopener">MRO and Mixin</a></li>
+<li><a href="https://www.cnblogs.com/xybaby/p/6484262.html" target="_blank" rel="noopener">Mixin模式</a></li>
+<li><a href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">Mixin MRO</a></li>
+<li><a href="http://xiaocong.github.io/blog/2012/06/13/python-mixin-and-mro/" target="_blank" rel="noopener">MRO</a></li>
+</ul>
+</li>
+<li><p>我们使用多继承语法来实现Minxin</p>
+</li>
+<li>使用Mixin实现多继承的时候非常小心<ul>
+<li>首先他必须表示某一单一功能，而不是某个物品</li>
+<li>职责必须单一，如果由多个功能，则写多个Mixin</li>
+<li>Mixin不能依赖于子类的实现</li>
+<li>子类及时没有继承这个Mixin类， 也能照样工作，只是缺少了某个功能</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>使用Mixin可以在不对类进行任何修改的情况下，扩充功能</li>
+<li>可以方便的组织和维护不同功能组件的划分</li>
+<li>可以根据需要任意调整功能类的组合</li>
+<li>可以避免创建很多新的类，导致类的继承混乱</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"># Mixin案例</span><br><span class="line">class Person():</span><br><span class="line">                name = &quot;liuying&quot;</span><br><span class="line">                age = 18</span><br><span class="line"></span><br><span class="line">                def eat(self):</span><br><span class="line">                    print(&quot;EAT.......&quot;)</span><br><span class="line">                    </span><br><span class="line">                def drink(self):</span><br><span class="line">                    print(&quot;DRINK......&quot;)</span><br><span class="line">                    </span><br><span class="line">                def sleep(self):</span><br><span class="line">                    print(&quot;SLEEP.....&quot;)</span><br><span class="line">                </span><br><span class="line">class Teacher(Person):</span><br><span class="line">                def work(self):</span><br><span class="line">                    print(&quot;Work&quot;)</span><br><span class="line"></span><br><span class="line">class Student(Person):</span><br><span class="line">                def study(self):</span><br><span class="line">                    print(&quot;Study&quot;)</span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">class Tutor(Teacher, Student):</span><br><span class="line">                pass</span><br><span class="line"></span><br><span class="line">t = Tutor()</span><br><span class="line">             </span><br><span class="line">print(Tutor.__mro__)</span><br><span class="line">print(t.__dict__)</span><br><span class="line">print(Tutor.__dict__)</span><br><span class="line"></span><br><span class="line">print(&quot;*&quot;*20)</span><br><span class="line">class TeacherMixin():</span><br><span class="line">                def work(self):</span><br><span class="line">                    print(&quot;Work&quot;)</span><br><span class="line"></span><br><span class="line">class StudentMixin():</span><br><span class="line">                def study(self):</span><br><span class="line">                    print(&quot;Study&quot;)</span><br><span class="line">                    </span><br><span class="line">class TutorM(Person, TeacherMixin, StudentMixin):</span><br><span class="line">                pass</span><br><span class="line"></span><br><span class="line">tt = TutorM()</span><br><span class="line">print(TutorM.__mro__)</span><br><span class="line">print(tt.__dict__)</span><br><span class="line">print(TutorM.__dict__)</span><br></pre></td></tr></table></figure>
+<h2 id="4-类相关函数"><a href="#4-类相关函数" class="headerlink" title="4 类相关函数"></a>4 类相关函数</h2><ul>
+<li>issubclass:检测一个类是否是另一个类的子类</li>
+<li>isinstance:检测一个对象是否是一个类的实例</li>
+<li>hasattr:检测一个对象是否由成员xxx</li>
+<li>getattr: get attribute</li>
+<li>setattr: set attribute</li>
+<li>delattr: delete attribute</li>
+<li>dir: 获取对象的成员列表</li>
+</ul>
+<h2 id="5-类的成员描述符（属性）"><a href="#5-类的成员描述符（属性）" class="headerlink" title="5 类的成员描述符（属性）"></a>5 类的成员描述符（属性）</h2><ul>
+<li>类的成员描述符是为了在类中对类的成员属性进行相关操作而创建的一种方式<ul>
+<li>get： 获取属性的操作</li>
+<li>set：修改或者添加属性操作</li>
+<li>delete： 删除属性的操作</li>
+</ul>
+</li>
+<li>如果想使用类的成员描述符，大概有三种方法<ul>
+<li>使用类实现描述器</li>
+<li>使用属性修饰符</li>
+<li>使用property函数<ul>
+<li>property函数很简单</li>
+<li>property(fget, fset, fdel, doc)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># peroperty案例</span><br><span class="line"># 定义一个Person类，具有name，age属性</span><br><span class="line"># 对于任意输入的姓名，我们希望都用大写方式保存</span><br><span class="line"># 年龄，我们希望内部统一用整数保存</span><br><span class="line"># x = property(fget, fset, fdel, doc)</span><br><span class="line">class Person():</span><br><span class="line"></span><br><span class="line">    # 函数的名称可以任意</span><br><span class="line">    def fget(self):</span><br><span class="line">        return self._name * 2</span><br><span class="line">    </span><br><span class="line">    def fset(self, name):</span><br><span class="line">        # 所有输入的姓名以大写形式保存</span><br><span class="line">        self._name = name.upper()</span><br><span class="line">        </span><br><span class="line">    def fdel(self):</span><br><span class="line">        self._name = &quot;NoName&quot;</span><br><span class="line">    </span><br><span class="line">    name2 = property(fget, fset, fdel, &quot;对name进行下下操作啦&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无论哪种修饰符都是为了对成员属性进行相应的控制  <ul>
+<li>类的方式： 适合多个类中的多个属性共用用一个描述符</li>
+<li>property：使用当前类中使用，可以控制一个类中多个属性</li>
+<li>属性修饰符： 使用于当前类中使用，控制一个类中的一个属性</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-类的内置属性"><a href="#6-类的内置属性" class="headerlink" title="6 类的内置属性"></a>6 类的内置属性</h2><pre><code>__dict__:以字典的方式显示类的成员组成
+__doc__: 获取类的文档信息
+__name__:获取类的名称，如果在模块中使用，获取模块的名称
+__bases__: 获取某个类的所有父类，以元组的方式显示
+</code></pre><h2 id="7-类的常用魔术方法"><a href="#7-类的常用魔术方法" class="headerlink" title="7 类的常用魔术方法"></a>7 类的常用魔术方法</h2><ul>
+<li>魔术方法就是不需要人为调用的方法，基本是在特定的时刻自动触发</li>
+<li>魔术方法的统一的特征，方法名被前后各两个下滑线包裹</li>
+<li>操作类<ul>
+<li><code>__init__</code>: 构造函数</li>
+<li><code>__new__</code>: 对象实例化方法，此函数较特殊，一般不需要使用</li>
+<li><code>__call__</code>: 对象当函数使用的时候触发</li>
+<li><code>__str__</code>: 当对象被当做字符串使用的时候调用</li>
+<li><code>__repr__</code>: 返回字符串 </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>描述符相关<ul>
+<li><code>__set__</code></li>
+<li><code>__get__</code></li>
+<li><code>__delete__</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>属性操作相关<ul>
+<li><code>__getattr__</code>: 访问一个不存在的属性时触发</li>
+<li><code>__setattr__</code>: 对成员属性进行设置的时候触发<ul>
+<li>参数： <ul>
+<li>self用来获取当前对象</li>
+<li>被设置的属性名称，以字符串形式出现</li>
+<li>需要对属性名称设置的值</li>
+</ul>
+</li>
+<li>作用：进行属性设置的时候进行验证或者修改</li>
+<li>注意： 在该方法中不能对属性直接进行赋值操作，否则死循环</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># __setattr__案例</span><br><span class="line">class Person():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def __setattr__(self, name, value):</span><br><span class="line">        print(&quot;设置属性： &#123;0&#125;&quot;.format(name))</span><br><span class="line">        # 下面语句会导致问题，死循环</span><br><span class="line">        #self.name = value</span><br><span class="line">        </span><br><span class="line">        # 此种情况，为了避免死循环，规定统一调用父类魔法函数</span><br><span class="line">        super().__setattr__(name, value)</span><br><span class="line">        </span><br><span class="line">p = Person()</span><br><span class="line">print(p.__dict__)</span><br><span class="line">p.age = 18</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">- 运算分类相关魔术方法</span><br><span class="line">    - `__gt__`: 进行大于判断的时候触发的函数</span><br><span class="line">        - 参数：</span><br><span class="line">            - self</span><br><span class="line">            - 第二个参数是第二个对象</span><br><span class="line">        - 返回值可以是任意值，推荐返回布尔值</span><br><span class="line">    - 待补充。。</span><br></pre></td></tr></table></figure>
+<h1 id="gt"><a href="#gt" class="headerlink" title="gt"></a><strong>gt</strong></h1><p>class Student():<br>    def <strong>init</strong>(self, name):<br>        self._name = name</p>
+<pre><code>def __gt__(self, obj):
+    print(&quot;哈哈， {0} 会比 {1} 大吗？&quot;.format(self, obj))
+    return self._name &gt; obj._name
+</code></pre><p>stu1 = Student(“one”)<br>stu2 = Student(“two”)</p>
+<p>print(stu1 &gt; stu2)</p>
+<p>哈哈， &lt;<strong>main</strong>.Student object at 0x7f4aac6b3b00&gt; 会比 &lt;<strong>main</strong>.Student object at 0x7f4aac6b3ac8&gt; 大吗？<br>False</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">           </span><br><span class="line">## 8 类和对象的三种方法</span><br><span class="line">- 实例方法</span><br><span class="line">    - 需要实例化对象才能使用的方法，使用过程中可能需要截止对象的其他对象的方法完成</span><br><span class="line">- 静态方法</span><br><span class="line">    - 不需要实例化，通过类直接访问</span><br><span class="line">- 类方法</span><br><span class="line">    - 不需要实例化</span><br></pre></td></tr></table></figure>
+<h1 id="三种方法的案例"><a href="#三种方法的案例" class="headerlink" title="三种方法的案例"></a>三种方法的案例</h1><p>class Person:</p>
+<pre><code># 实例方法
+def eat(self):
+    print(self)
+    print(&quot;Eating.....&quot;)
+
+#类方法
+# 类方法的第一个参数，一般命名为cls，区别于self
+@classmethod
+def play(cls):
+    print(cls)
+    print(&quot;Playing.....&quot;)
+
+# 静态方法
+# 不需要用第一个参数表示自身或者类
+@staticmethod
+def say():
+    print(&quot;Saying....&quot;)
+</code></pre><p>yueyue = Person()</p>
+<h1 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h1><p>yueyue.eat()</p>
+<h1 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h1><p>Person.play()<br>yueyue.play()</p>
+<p>#静态方法<br>Person.say()<br>yueyue.say()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"># 9 抽象类</span><br><span class="line">- 抽象方法： 没有具体实现内容的方法成为抽象方法</span><br><span class="line">- 抽象方法的主要意义是规范了子类的行为和接口</span><br><span class="line">- 抽象类的使用需要借助abc模块</span><br><span class="line"></span><br><span class="line">        import abc</span><br><span class="line">       </span><br><span class="line">- 抽象类：包含抽象方法的类叫抽象类，通常成为ABC类</span><br></pre></td></tr></table></figure>
+<h1 id="抽象类的实现"><a href="#抽象类的实现" class="headerlink" title="抽象类的实现"></a>抽象类的实现</h1><p>import abc</p>
+<p>#声明一个类并且指定当前类的元类<br>class Human(metaclass=abc.ABCMeta):</p>
+<pre><code># 定义一个抽象的方法
+@abc.abstractmethod
+def smoking(self):
+    pass
+
+# 定义类抽象方法
+@abc.abstractclassmethod
+def drink():
+    pass
+
+# 定义静态抽象方法
+@abc.abstractstaticmethod
+def play():
+    pass
+
+# 定义一个具体方法
+def sleep(self):
+    print(&quot;Sleeping.......&quot;)
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- 抽象类的使用</span><br><span class="line">    - 抽象类可以包含抽象方法，也可以包含具体方法</span><br><span class="line">    - 抽象类中可以有方法也可以有属性</span><br><span class="line">    - 抽象类不允许直接实例化</span><br><span class="line">    - 必须继承才可以使用，且继承的子类必须实现所有继承来的抽象方法</span><br><span class="line">    - 假定子类没有是现实所有继承的抽象方法，则子类也不能实例化</span><br><span class="line">    - 抽象类的主要作用是设定类的标准，以便于开发的时候具有统一的规范</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">## 10 自定义类</span><br></pre></td></tr></table></figure>
+<h1 id="函数名可以当变量使用"><a href="#函数名可以当变量使用" class="headerlink" title="函数名可以当变量使用"></a>函数名可以当变量使用</h1><p>def sayHello(name):<br>    print(“{0}你好 “.format(name))</p>
+<p>sayHello(“月月”)</p>
+<p>B = sayHello<br>B(“yueyue”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 类其实是一个类定义和各种方法的自由组合</span><br><span class="line">- 可以定义类和函数，然后自己通过类直接赋值</span><br></pre></td></tr></table></figure></p>
+<h1 id="组装类-1"><a href="#组装类-1" class="headerlink" title="组装类 1"></a>组装类 1</h1><p>class A():<br>    pass</p>
+<p>def say(self):<br>    print(“Saying… …”)</p>
+<p>#等同于<br>class B():<br>    def say(self):<br>        print(“Saying……”)</p>
+<p>say(9)<br>A.say = say<br>a = A()<br>a.say()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 可以借助于MethodType实现</span><br></pre></td></tr></table></figure>
+<h1 id="组装类例子-2"><a href="#组装类例子-2" class="headerlink" title="组装类例子 2"></a>组装类例子 2</h1><h1 id="自己组装一个类"><a href="#自己组装一个类" class="headerlink" title="自己组装一个类"></a>自己组装一个类</h1><p>from types import MethodType</p>
+<p>class A():<br>    pass</p>
+<p>def say(self):<br>    print(“Saying… …”)</p>
+<p>a = A()</p>
+<h1 id="通过MethodType-把say组装到A"><a href="#通过MethodType-把say组装到A" class="headerlink" title="通过MethodType 把say组装到A"></a>通过MethodType 把say组装到A</h1><p>a.say = MethodType(say, A)<br>a.say()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 借助于type实现</span><br></pre></td></tr></table></figure></p>
+<h1 id="利用type造一个类"><a href="#利用type造一个类" class="headerlink" title="利用type造一个类"></a>利用type造一个类</h1><h1 id="先定义类应该具有的成员函数"><a href="#先定义类应该具有的成员函数" class="headerlink" title="先定义类应该具有的成员函数"></a>先定义类应该具有的成员函数</h1><p>def say(self):<br>    print(“Saying…..”)</p>
+<p>def talk(self):<br>    print(“Talking …..”)</p>
+<p>#用type来创建一个类<br>A = type(“AName”, (object, ), {“class_say”:say, “class_talk”:talk})</p>
+<h1 id="然后可以像正常访问一样使用类"><a href="#然后可以像正常访问一样使用类" class="headerlink" title="然后可以像正常访问一样使用类"></a>然后可以像正常访问一样使用类</h1><p>a = A()</p>
+<p>a.class_say()<br>a.class_talk()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 利用元类实现- MetaClass</span><br><span class="line">    - 元类是类</span><br><span class="line">    - 被用来创造别的类</span><br></pre></td></tr></table></figure></p>
+<h1 id="元类演示"><a href="#元类演示" class="headerlink" title="元类演示"></a>元类演示</h1><h1 id="元类写法是固定的，必须继承自type"><a href="#元类写法是固定的，必须继承自type" class="headerlink" title="元类写法是固定的，必须继承自type"></a>元类写法是固定的，必须继承自type</h1><h1 id="元类一般命名以MetaClass结尾"><a href="#元类一般命名以MetaClass结尾" class="headerlink" title="元类一般命名以MetaClass结尾"></a>元类一般命名以MetaClass结尾</h1><p>class TulingMetaClass(type):</p>
+<pre><code># 注意以下写法
+def __new__(cls, name, bases, attrs):
+    #自己的业务处理
+    print(&quot;哈哈，我是元类呀&quot;)
+    attrs[&apos;id&apos;] = &apos;000000&apos;
+    attrs[&apos;addr&apos;] = &quot;北京海淀区公主坟西翠路12号&quot;
+    return type.__new__(cls, name, bases, attrs)
+</code></pre><h1 id="元类定义完就可以使用，使用注意写法"><a href="#元类定义完就可以使用，使用注意写法" class="headerlink" title="元类定义完就可以使用，使用注意写法"></a>元类定义完就可以使用，使用注意写法</h1><p>class Teacher(object, metaclass=TulingMetaClass):<br>    pass</p>
+<p>t = Teacher()</p>
+<p>t.id<br><code>`</code></p>
 
         </div>
         <div class="post-tool">
@@ -491,8 +685,8 @@ class_name.__dict__
              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
              */
             var disqus_config = function () {
-                this.page.url = 'http://yoursite.com/2019/04/21/03.Python面向对象/';
-                this.page.identifier = '2019/04/21/03.Python面向对象/';
+                this.page.url = 'http://yoursite.com/2019/04/25/02.Python的面向对象/';
+                this.page.identifier = '2019/04/25/02.Python的面向对象/';
             };
             (function () { // DON'T EDIT BELOW THIS LINE
                 var d = document, disqus_shortname = 'shuoit', s = d.createElement('script');
