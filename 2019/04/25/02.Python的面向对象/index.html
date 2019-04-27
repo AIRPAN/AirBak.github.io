@@ -180,7 +180,7 @@
             </div>
             <h2 class="post-title">Python 的面向对象</h2>
             <div class="post-meta">
-                本文共计15109个字 |
+                本文共计15529个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
@@ -543,88 +543,81 @@ __bases__: 获取某个类的所有父类，以元组的方式显示
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># __setattr__案例</span><br><span class="line">class Person():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def __setattr__(self, name, value):</span><br><span class="line">        print(&quot;设置属性： &#123;0&#125;&quot;.format(name))</span><br><span class="line">        # 下面语句会导致问题，死循环</span><br><span class="line">        #self.name = value</span><br><span class="line">        </span><br><span class="line">        # 此种情况，为了避免死循环，规定统一调用父类魔法函数</span><br><span class="line">        super().__setattr__(name, value)</span><br><span class="line">        </span><br><span class="line">p = Person()</span><br><span class="line">print(p.__dict__)</span><br><span class="line">p.age = 18</span><br><span class="line"></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 运算分类相关魔术方法</span><br><span class="line">    - `__gt__`: 进行大于判断的时候触发的函数</span><br><span class="line">        - 参数：</span><br><span class="line">            - self</span><br><span class="line">            - 第二个参数是第二个对象</span><br><span class="line">        - 返回值可以是任意值，推荐返回布尔值</span><br><span class="line">    - 待补充。。</span><br></pre></td></tr></table></figure>
-<p>#实例：</p>
-<p>class Student():<br>    def <strong>init</strong>(self, name):<br>        self._name = name</p>
-<pre><code>def __gt__(self, obj):
-    print(&quot;哈哈， {0} 会比 {1} 大吗？&quot;.format(self, obj))
-    return self._name &gt; obj._name
-</code></pre><p>stu1 = Student(“one”)<br>stu2 = Student(“two”)</p>
-<p>print(stu1 &gt; stu2)</p>
-<p>哈哈， &lt;<strong>main</strong>.Student object at 0x7f4aac6b3b00&gt; 会比 &lt;<strong>main</strong>.Student object at 0x7f4aac6b3ac8&gt; 大吗？<br>False<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">        </span><br><span class="line">## 8 类和对象的三种方法</span><br><span class="line">- 实例方法</span><br><span class="line">    - 需要实例化对象才能使用的方法，使用过程中可能需要截止对象的其他对象的方法完成</span><br><span class="line">- 静态方法</span><br><span class="line">    - 不需要实例化，通过类直接访问</span><br><span class="line">- 类方法</span><br><span class="line">    - 不需要实例化</span><br></pre></td></tr></table></figure></p>
-<h1 id="三种方法的案例"><a href="#三种方法的案例" class="headerlink" title="三种方法的案例"></a>三种方法的案例</h1><p>class Person:</p>
-<pre><code># 实例方法
-def eat(self):
-    print(self)
-    print(&quot;Eating.....&quot;)
-
-#类方法
-# 类方法的第一个参数，一般命名为cls，区别于self
-@classmethod
-def play(cls):
-    print(cls)
-    print(&quot;Playing.....&quot;)
-
-# 静态方法
-# 不需要用第一个参数表示自身或者类
-@staticmethod
-def say():
-    print(&quot;Saying....&quot;)
-</code></pre><p>yueyue = Person()</p>
-<h1 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h1><p>yueyue.eat()</p>
-<h1 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h1><p>Person.play()<br>yueyue.play()</p>
-<p>#静态方法<br>Person.say()<br>yueyue.say()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"># 9 抽象类</span><br><span class="line">- 抽象方法： 没有具体实现内容的方法成为抽象方法</span><br><span class="line">- 抽象方法的主要意义是规范了子类的行为和接口</span><br><span class="line">- 抽象类的使用需要借助abc模块</span><br><span class="line"></span><br><span class="line">        import abc</span><br><span class="line">       </span><br><span class="line">- 抽象类：包含抽象方法的类叫抽象类，通常成为ABC类</span><br></pre></td></tr></table></figure>
-<h1 id="抽象类的实现"><a href="#抽象类的实现" class="headerlink" title="抽象类的实现"></a>抽象类的实现</h1><p>import abc</p>
-<p>#声明一个类并且指定当前类的元类<br>class Human(metaclass=abc.ABCMeta):</p>
-<pre><code># 定义一个抽象的方法
-@abc.abstractmethod
-def smoking(self):
-    pass
-
-# 定义类抽象方法
-@abc.abstractclassmethod
-def drink():
-    pass
-
-# 定义静态抽象方法
-@abc.abstractstaticmethod
-def play():
-    pass
-
-# 定义一个具体方法
-def sleep(self):
-    print(&quot;Sleeping.......&quot;)
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 抽象类的使用</span><br><span class="line">    - 抽象类可以包含抽象方法，也可以包含具体方法</span><br><span class="line">    - 抽象类中可以有方法也可以有属性</span><br><span class="line">    - 抽象类不允许直接实例化</span><br><span class="line">    - 必须继承才可以使用，且继承的子类必须实现所有继承来的抽象方法</span><br><span class="line">    - 假定子类没有是现实所有继承的抽象方法，则子类也不能实例化</span><br><span class="line">    - 抽象类的主要作用是设定类的标准，以便于开发的时候具有统一的规范</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">## 10 自定义类</span><br></pre></td></tr></table></figure>
-<h1 id="函数名可以当变量使用"><a href="#函数名可以当变量使用" class="headerlink" title="函数名可以当变量使用"></a>函数名可以当变量使用</h1><p>def sayHello(name):<br>    print(“{0}你好 “.format(name))</p>
-<p>sayHello(“月月”)</p>
-<p>B = sayHello<br>B(“yueyue”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 类其实是一个类定义和各种方法的自由组合</span><br><span class="line">- 可以定义类和函数，然后自己通过类直接赋值</span><br></pre></td></tr></table></figure></p>
-<h1 id="组装类-1"><a href="#组装类-1" class="headerlink" title="组装类 1"></a>组装类 1</h1><p>class A():<br>    pass</p>
-<p>def say(self):<br>    print(“Saying… …”)</p>
-<p>#等同于<br>class B():<br>    def say(self):<br>        print(“Saying……”)</p>
-<p>say(9)<br>A.say = say<br>a = A()<br>a.say()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 可以借助于MethodType实现</span><br></pre></td></tr></table></figure>
-<h1 id="组装类例子-2"><a href="#组装类例子-2" class="headerlink" title="组装类例子 2"></a>组装类例子 2</h1><h1 id="自己组装一个类"><a href="#自己组装一个类" class="headerlink" title="自己组装一个类"></a>自己组装一个类</h1><p>from types import MethodType</p>
-<p>class A():<br>    pass</p>
-<p>def say(self):<br>    print(“Saying… …”)</p>
-<p>a = A()</p>
-<h1 id="通过MethodType-把say组装到A"><a href="#通过MethodType-把say组装到A" class="headerlink" title="通过MethodType 把say组装到A"></a>通过MethodType 把say组装到A</h1><p>a.say = MethodType(say, A)<br>a.say()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 借助于type实现</span><br></pre></td></tr></table></figure></p>
-<h1 id="利用type造一个类"><a href="#利用type造一个类" class="headerlink" title="利用type造一个类"></a>利用type造一个类</h1><h1 id="先定义类应该具有的成员函数"><a href="#先定义类应该具有的成员函数" class="headerlink" title="先定义类应该具有的成员函数"></a>先定义类应该具有的成员函数</h1><p>def say(self):<br>    print(“Saying…..”)</p>
-<p>def talk(self):<br>    print(“Talking …..”)</p>
-<p>#用type来创建一个类<br>A = type(“AName”, (object, ), {“class_say”:say, “class_talk”:talk})</p>
-<h1 id="然后可以像正常访问一样使用类"><a href="#然后可以像正常访问一样使用类" class="headerlink" title="然后可以像正常访问一样使用类"></a>然后可以像正常访问一样使用类</h1><p>a = A()</p>
-<p>a.class_say()<br>a.class_talk()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 利用元类实现- MetaClass</span><br><span class="line">    - 元类是类</span><br><span class="line">    - 被用来创造别的类</span><br></pre></td></tr></table></figure></p>
-<h1 id="元类演示"><a href="#元类演示" class="headerlink" title="元类演示"></a>元类演示</h1><h1 id="元类写法是固定的，必须继承自type"><a href="#元类写法是固定的，必须继承自type" class="headerlink" title="元类写法是固定的，必须继承自type"></a>元类写法是固定的，必须继承自type</h1><h1 id="元类一般命名以MetaClass结尾"><a href="#元类一般命名以MetaClass结尾" class="headerlink" title="元类一般命名以MetaClass结尾"></a>元类一般命名以MetaClass结尾</h1><p>class TulingMetaClass(type):</p>
-<pre><code># 注意以下写法
-def __new__(cls, name, bases, attrs):
-    #自己的业务处理
-    print(&quot;哈哈，我是元类呀&quot;)
-    attrs[&apos;id&apos;] = &apos;000000&apos;
-    attrs[&apos;addr&apos;] = &quot;北京海淀区公主坟西翠路12号&quot;
-    return type.__new__(cls, name, bases, attrs)
-</code></pre><h1 id="元类定义完就可以使用，使用注意写法"><a href="#元类定义完就可以使用，使用注意写法" class="headerlink" title="元类定义完就可以使用，使用注意写法"></a>元类定义完就可以使用，使用注意写法</h1><p>class Teacher(object, metaclass=TulingMetaClass):<br>    pass</p>
-<p>t = Teacher()</p>
-<p>t.id<br><code>`</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># __setattr__案例</span><br><span class="line">class Person():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def __setattr__(self, name, value):</span><br><span class="line">        print(&quot;设置属性： &#123;0&#125;&quot;.format(name))</span><br><span class="line">        # 下面语句会导致问题，死循环</span><br><span class="line">        #self.name = value</span><br><span class="line">        </span><br><span class="line">        # 此种情况，为了避免死循环，规定统一调用父类魔法函数</span><br><span class="line">        super().__setattr__(name, value)</span><br><span class="line">        </span><br><span class="line">p = Person()</span><br><span class="line">print(p.__dict__)</span><br><span class="line">p.age = 18</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运算分类相关魔术方法<ul>
+<li><code>__gt__</code>: 进行大于判断的时候触发的函数<ul>
+<li>参数：<ul>
+<li>self</li>
+<li>第二个参数是第二个对象</li>
+</ul>
+</li>
+<li>返回值可以是任意值，推荐返回布尔值</li>
+</ul>
+</li>
+<li>待补充。。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#实例：</span><br><span class="line"></span><br><span class="line">class Student():</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self._name = name</span><br><span class="line">    </span><br><span class="line">    def __gt__(self, obj):</span><br><span class="line">        print(&quot;哈哈， &#123;0&#125; 会比 &#123;1&#125; 大吗？&quot;.format(self, obj))</span><br><span class="line">        return self._name &gt; obj._name</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">stu1 = Student(&quot;one&quot;)</span><br><span class="line">stu2 = Student(&quot;two&quot;)</span><br><span class="line"></span><br><span class="line">print(stu1 &gt; stu2)</span><br><span class="line"></span><br><span class="line">哈哈， &lt;__main__.Student object at 0x7f4aac6b3b00&gt; 会比 &lt;__main__.Student object at 0x7f4aac6b3ac8&gt; 大吗？</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-类和对象的三种方法"><a href="#8-类和对象的三种方法" class="headerlink" title="8 类和对象的三种方法"></a>8 类和对象的三种方法</h2><ul>
+<li>实例方法<ul>
+<li>需要实例化对象才能使用的方法，使用过程中可能需要截止对象的其他对象的方法完成</li>
+</ul>
+</li>
+<li>静态方法<ul>
+<li>不需要实例化，通过类直接访问</li>
+</ul>
+</li>
+<li>类方法<ul>
+<li>不需要实例化</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 三种方法的案例</span><br><span class="line">class Person:</span><br><span class="line">    # 实例方法</span><br><span class="line">    def eat(self):</span><br><span class="line">        print(self)</span><br><span class="line">        print(&quot;Eating.....&quot;)</span><br><span class="line">    </span><br><span class="line">    #类方法</span><br><span class="line">    # 类方法的第一个参数，一般命名为cls，区别于self</span><br><span class="line">    @classmethod</span><br><span class="line">    def play(cls):</span><br><span class="line">        print(cls)</span><br><span class="line">        print(&quot;Playing.....&quot;)</span><br><span class="line">        </span><br><span class="line">    # 静态方法</span><br><span class="line">    # 不需要用第一个参数表示自身或者类</span><br><span class="line">    @staticmethod</span><br><span class="line">    def say():</span><br><span class="line">        print(&quot;Saying....&quot;)</span><br><span class="line">        </span><br><span class="line">yueyue = Person()</span><br><span class="line"></span><br><span class="line"># 实例方法</span><br><span class="line">yueyue.eat()</span><br><span class="line"># 类方法</span><br><span class="line">Person.play()</span><br><span class="line">yueyue.play()</span><br><span class="line">#静态方法</span><br><span class="line">Person.say()</span><br><span class="line">yueyue.say()</span><br></pre></td></tr></table></figure>
+<h1 id="9-抽象类"><a href="#9-抽象类" class="headerlink" title="9 抽象类"></a>9 抽象类</h1><ul>
+<li>抽象方法： 没有具体实现内容的方法成为抽象方法</li>
+<li>抽象方法的主要意义是规范了子类的行为和接口</li>
+<li><p>抽象类的使用需要借助abc模块</p>
+<pre><code>import abc
+</code></pre></li>
+<li><p>抽象类：包含抽象方法的类叫抽象类，通常成为ABC类</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 抽象类的实现</span><br><span class="line"></span><br><span class="line">import abc</span><br><span class="line"></span><br><span class="line">#声明一个类并且指定当前类的元类</span><br><span class="line">class Human(metaclass=abc.ABCMeta):</span><br><span class="line"></span><br><span class="line">    # 定义一个抽象的方法</span><br><span class="line">    @abc.abstractmethod</span><br><span class="line">    def smoking(self):</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    # 定义类抽象方法</span><br><span class="line">    @abc.abstractclassmethod</span><br><span class="line">    def drink():</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    # 定义静态抽象方法</span><br><span class="line">    @abc.abstractstaticmethod</span><br><span class="line">    def play():</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    # 定义一个具体方法</span><br><span class="line">    def sleep(self):</span><br><span class="line">        print(&quot;Sleeping.......&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>抽象类的使用<ul>
+<li>抽象类可以包含抽象方法，也可以包含具体方法</li>
+<li>抽象类中可以有方法也可以有属性</li>
+<li>抽象类不允许直接实例化</li>
+<li>必须继承才可以使用，且继承的子类必须实现所有继承来的抽象方法</li>
+<li>假定子类没有是现实所有继承的抽象方法，则子类也不能实例化</li>
+<li>抽象类的主要作用是设定类的标准，以便于开发的时候具有统一的规范</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-自定义类"><a href="#10-自定义类" class="headerlink" title="10 自定义类"></a>10 自定义类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 函数名可以当变量使用</span><br><span class="line">def sayHello(name):</span><br><span class="line">    print(&quot;&#123;0&#125;你好 &quot;.format(name))</span><br><span class="line">    </span><br><span class="line">sayHello(&quot;月月&quot;)</span><br><span class="line"></span><br><span class="line">B = sayHello</span><br><span class="line">B(&quot;yueyue&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类其实是一个类定义和各种方法的自由组合</li>
+<li>可以定义类和函数，然后自己通过类直接赋值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 组装类 1 </span><br><span class="line">class A():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">def say(self):</span><br><span class="line">    print(&quot;Saying... ...&quot;)</span><br><span class="line">    </span><br><span class="line">#等同于    </span><br><span class="line">class B():</span><br><span class="line">    def say(self):</span><br><span class="line">        print(&quot;Saying......&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">say(9)</span><br><span class="line">A.say = say</span><br><span class="line">a = A()</span><br><span class="line">a.say()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以借助于MethodType实现</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 组装类例子 2</span><br><span class="line"># 自己组装一个类</span><br><span class="line">from types import MethodType</span><br><span class="line"></span><br><span class="line">class A():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">def say(self):</span><br><span class="line">    print(&quot;Saying... ...&quot;)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">a = A()</span><br><span class="line"># 通过MethodType 把say组装到A  </span><br><span class="line">a.say = MethodType(say, A)</span><br><span class="line">a.say()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>借助于type实现</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 利用type造一个类</span><br><span class="line"></span><br><span class="line"># 先定义类应该具有的成员函数</span><br><span class="line">def say(self):</span><br><span class="line">    print(&quot;Saying.....&quot;)</span><br><span class="line">    </span><br><span class="line">def talk(self):</span><br><span class="line">    print(&quot;Talking .....&quot;)</span><br><span class="line">    </span><br><span class="line">#用type来创建一个类</span><br><span class="line">A = type(&quot;AName&quot;, (object, ), &#123;&quot;class_say&quot;:say, &quot;class_talk&quot;:talk&#125;)</span><br><span class="line"></span><br><span class="line"># 然后可以像正常访问一样使用类</span><br><span class="line">a = A()</span><br><span class="line"></span><br><span class="line">a.class_say()</span><br><span class="line">a.class_talk()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用元类实现- MetaClass<ul>
+<li>元类是类</li>
+<li>被用来创造别的类<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 元类演示</span><br><span class="line"># 元类写法是固定的，必须继承自type</span><br><span class="line"># 元类一般命名以MetaClass结尾</span><br><span class="line">class TulingMetaClass(type):</span><br><span class="line">    # 注意以下写法</span><br><span class="line">    def __new__(cls, name, bases, attrs):</span><br><span class="line">        #自己的业务处理</span><br><span class="line">        print(&quot;哈哈，我是元类呀&quot;)</span><br><span class="line">        attrs[&apos;id&apos;] = &apos;000000&apos;</span><br><span class="line">        attrs[&apos;addr&apos;] = &quot;北京海淀区公主坟西翠路12号&quot;</span><br><span class="line">        return type.__new__(cls, name, bases, attrs)</span><br><span class="line">    </span><br><span class="line"># 元类定义完就可以使用，使用注意写法</span><br><span class="line">class Teacher(object, metaclass=TulingMetaClass):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">t = Teacher()</span><br><span class="line"></span><br><span class="line">t.id</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 
         </div>
         <div class="post-tool">
