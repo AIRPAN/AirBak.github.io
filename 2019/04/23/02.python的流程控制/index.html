@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//shuoit.disqus.com">
+    <link rel="prefetch" href="//disqus.com">
+    <link rel="prefetch" href="//shuoit.disqus.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="DU">
+<link rel="stylesheet" href="/css/JSimple.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>python的流程控制 - Hexo</title>
+
+<meta name="keywords" content="git, git revert">
+
+<meta name="description " content="来自2019.4.23的笔记：python的流程控制">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+    <!-- 自动广告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4837253996935841",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="//www.googletagmanager.com/gtag/js?id=UA-131527701-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-131527701-1');
+        </script>
+    
+    <!-- put your likes here. -->
+
+
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="说">说</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">说IT</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个关注技术与人文的IT博客</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/AIRPAN" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="active">
+                    <a href="/categories/tech-notes" data-name="技术">技术</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/humanities" data-name="人文">人文</a>
+                </li>
+            
+                <li class>
+                    <a href="/categories/others" data-name="其他">其他</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text" readonly="readonly" id="local-search-input-tip" placeholder="读物检索~">
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://www.tangkunyin.com" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar">
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://about.tangkunyin.com" target="_blank">DU</a>
+                    <span title="最后编辑于&nbsp;2019-04-23">2019-04-23</span>
+                </p>
+                <p>一个写代码的「伪文人」</p>
+            </div>
+            <h2 class="post-title">python的流程控制</h2>
+            <div class="post-meta">
+                本文共计3857个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><ul>
+<li>分支结构</li>
+<li>循环结构</li>
+<li>函数</li>
+</ul>
+<h1 id="分支结构-选择结构"><a href="#分支结构-选择结构" class="headerlink" title="分支结构/选择结构"></a>分支结构/选择结构</h1><h2 id="1-单项分支"><a href="#1-单项分支" class="headerlink" title="1 单项分支"></a>1 单项分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	if 条件表达式：   </span><br><span class="line">		...</span><br><span class="line"> ```  		    </span><br><span class="line">## 2 双向分支</span><br></pre></td></tr></table></figure>
+<p>if 条件表达式:<br>    …<br>else:<br>    …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">特征：   </span><br><span class="line">1) 双向分支有2个区间，分别是True控制的if区间(真区间)和False控制的else区间(假区间)  </span><br><span class="line">2) if区间内容必须完全缩进，否则出现语法问题  </span><br><span class="line">## 3 多项分支</span><br></pre></td></tr></table></figure></p>
+<p>if 条件表达式：<br>    …<br>elif 条件表达式:<br>    …<br>elif 条件表达式：<br>    …<br>else:<br>    …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">特征:  </span><br><span class="line">1) 无论什么样的分支，有多少个分支，分支结构只会执行其中一个分支，然后就会结束分支结构   </span><br><span class="line">2) 多项分支的条件判断是自上而下逐个判断的，True就执行这个分支，False就不执行这个分支   </span><br><span class="line">## 4 巢状分支  </span><br><span class="line">巢状分支就是多个其他if...else分支的嵌套组合。</span><br></pre></td></tr></table></figure></p>
+<p>if x &lt; 5:<br>    print(‘x真的小于5哦’)<br>    if y &lt; 6:<br>        print(‘如果y &lt; 6，我会被输出’)<br>    elif y &gt; 6:<br>        print(‘如果上y大于6，我会被输出’)<br>elif x &gt; 5:<br>    print(‘x大于5’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">注意：：在python中并没有switch...case分支。后期可以使用字典和函数的组合来代替。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 循环结构 </span><br><span class="line">## 1 while循环</span><br><span class="line">```      </span><br><span class="line">1）格式1：  </span><br><span class="line">while 条件表达式:    </span><br><span class="line">    ... </span><br><span class="line">    </span><br><span class="line">2）格式2：</span><br><span class="line">while 条件表达式：  </span><br><span class="line">   ...   </span><br><span class="line">else:   </span><br><span class="line">   ...</span><br><span class="line">   </span><br><span class="line">3）死循环:</span><br><span class="line">while True:</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-for循环"><a href="#2-for循环" class="headerlink" title="2 for循环"></a>2 for循环</h2><p>for … in 循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1） 格式1:  </span><br><span class="line">for 变量 in 序列:</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">2） 格式2:</span><br><span class="line">for 变量1,变量2.. in 多层序列：</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">3） 格式3：</span><br><span class="line">for 变量 in 序列：:</span><br><span class="line">    ...</span><br><span class="line">else:</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-其他流程控制语句"><a href="#3-其他流程控制语句" class="headerlink" title="3 其他流程控制语句"></a>3 其他流程控制语句</h2><ul>
+<li>break 破坏，结束，打破<br>作用：结束程序循环，一旦程序执行了break语句，那么当前break所在的循环就会被终止。  </li>
+<li>continue 继续<br>作用：结束本次循环，开始下一次的循环，他不会终止整个循环，仅对于循环中的某次循环有效  </li>
+<li>pass 通过，忽略<br>作用：在程序结构中有时不需用写任何python内容，但是如果没有内容，语言结构会出现语法错误！pass可以作为语法占位符使用，pass语句没有任何意义，也不会做任何操作</li>
+</ul>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="1-函数的特征"><a href="#1-函数的特征" class="headerlink" title="1 函数的特征"></a>1 函数的特征</h2><ul>
+<li>函数的定义必须使用def关键字</li>
+<li>函数不调用不会被执行</li>
+</ul>
+<h3 id="1-1-最基本的函数结构"><a href="#1-1-最基本的函数结构" class="headerlink" title="1.1 最基本的函数结构"></a>1.1 最基本的函数结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名()：</span><br><span class="line">    ...</span><br><span class="line">调用函数： 函数名()</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-具有参数的函数结构"><a href="#1-2-具有参数的函数结构" class="headerlink" title="1.2 具有参数的函数结构"></a>1.2 具有参数的函数结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名(参数名，参数名...):</span><br><span class="line">    ...</span><br><span class="line">调用函数: 函数名(值,值...)</span><br></pre></td></tr></table></figure>
+<p>声明函数的()中的参数称之为形参，形参表示形式上的参数<br>调用函数的()中的参数称之为实参，实参表示真实的值<br>注意:实参传递值给形参的过程，本质上就是普通的变量赋值  </p>
+<h3 id="1-3-具有默认值参数的函数"><a href="#1-3-具有默认值参数的函数" class="headerlink" title="1.3 具有默认值参数的函数"></a>1.3 具有默认值参数的函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def 函数名(形参名 = 默认值,形参名 = 默认值...):</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">调用函数1：函数名()</span><br><span class="line">调用函数2:函数名(实参,实参...)</span><br></pre></td></tr></table></figure>
+<p>注意:具有默认值的函数，调用时如果不提供实参，则会使用形参的默认值执行，如果提供了实参，则使用实参而忽略默认值</p>
+<h3 id="1-4-函数文档"><a href="#1-4-函数文档" class="headerlink" title="1.4 函数文档"></a>1.4 函数文档</h3><ol>
+<li>查看函数文档：<br>1) 使用help(函数名)，可以查看函数文档信息，查看信息时信息会换行<br>2) 使用函数名.<strong>doc</strong>的方式查看，查看信息时信息不会换行，会显示\n<br>3) 自定义函数文档：  </li>
+</ol>
+<p>在函数内部开始的第一行使用字符串定义文字内容即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def 函数名()：</span><br><span class="line"></span><br><span class="line">    &apos;此处书写函数文档信息，单引号中使用\n换行&apos;</span><br><span class="line"></span><br><span class="line">    函数中的其他代码...</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">def 函数名():</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    此处书写函数文档信息</span><br><span class="line">    此处书写函数文档信息</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    函数中的其他代码...</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-5-lambda表达式"><a href="#1-5-lambda表达式" class="headerlink" title="1.5 lambda表达式"></a>1.5 lambda表达式</h3><p>lambda表达式就是一种简洁格式的函数而已。lambda不是一种函数结构，只是一种表达式而且不需要函数名。（匿名函数）<br>格式：</p>
+<pre><code>变量 = lambda 形参,形参...： 功能代码
+</code></pre><p>案例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lambda x,y :x*y    #传入两个参数返回这两个数的乘积  </span><br><span class="line">lambda x： 值1  if 条件表达式 else 值2</span><br><span class="line">#根据条件表达式的真假返回值1还是值2</span><br></pre></td></tr></table></figure></p>
+<p>优点：<br>1.lambda表达式书写简单，不用def关键字，可惜要用lambda<br>2.lambda表达式不需要函数名，省得命名头疼<br>3.看起来比较装逼！  </p>
+<p>缺点：<br>1.lambda表达式功能受限，无法使用循环以及部分流程控制相关语句<br>2.lambda表达式不适合较为复杂的程序。  </p>
+<h2 id="2-关键字参数"><a href="#2-关键字参数" class="headerlink" title="2 关键字参数"></a>2 关键字参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def 函数名(形参名 = 默认值,形参名 = 默认值...):</span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line">调用函数：函数名(形参名 = 实参值,形参名 = 实参值...)</span><br></pre></td></tr></table></figure>
+<p>优点:由于实参和形参传递是按照位置一一对应的关系，当参数太多时容易出现参数传错位置的情况 引入关键字参数后，在设置实参时可以指定形参的名称，避免参数传递错误！</p>
+<h3 id="2-1-收集参数"><a href="#2-1-收集参数" class="headerlink" title="2.1 收集参数"></a>2.1 收集参数</h3><ol>
+<li>收集参数1 (专用于收集非关键字参数)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名(*形参名)：</span><br><span class="line">    ...    </span><br><span class="line">调用函数： 函数名(实参,实参....)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">注意: </span><br><span class="line">1) 使用收集参数进行形参的书写，需要在形参名之前添加*   </span><br><span class="line">2) *形参格式的收集参数会收集到调用函数时传入的所有没有关键字的形参  </span><br><span class="line">3) 收集参数收集到的最终数据是由所有非关键字实参组成的元组。</span><br><span class="line">4) 收集参数和普通的参数（关键字参数）可以共存</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>收集参数2 (专门用于收集关键字参数)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def 函数名(**args):</span><br><span class="line">    ...</span><br><span class="line">调用函数：函数名(形参名 = 值,形参名=值...)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">注意</span><br><span class="line">1) 使用收集参数收集关键字实参的方法需要在形参名之前加**  </span><br><span class="line">2) **形参格式会收集调用函数时传入函数的所有关键字参数  </span><br><span class="line">3) 收集的所有关键字参数最终组成的数据为字典类型  </span><br><span class="line">4) 关键字参数收集的方式可以和普通形参共存，但是必须在最后</span><br></pre></td></tr></table></figure>
+<p>注意1：普通形参，非关键字收集形参和关键字收集形参具有顺序关系<br>普通形参放最前面<br>非关键字形参放中间<br>关键字形参放最后<br>注意2：所有收集参数只能够收集没有形参接受的实参 </p>
+<h2 id="2-2-函数的变量作用域"><a href="#2-2-函数的变量作用域" class="headerlink" title="2.2 函数的变量作用域"></a>2.2 函数的变量作用域</h2><p>全局变量:在函数外部声明的变量就是全局变量<br>局部变量:在函数内部声明的变量就是局部变量  </p>
+<ol>
+<li>局部变量和全局变量的作用范围<br>1) 全局变量在全局范围内可以使用<br>2) 全局变量在局部范围内可以使用(访问)<br>3) 局部变量在局部范围内可以使用<br>4) 局部变量在全局范围内无法正常使用  </li>
+<li>global 关键字<br>global 关键字的作用是提升局部变量为全局变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def 函数名():</span><br><span class="line">		...</span><br><span class="line">    #提升局部变量为全局变量</span><br><span class="line">    global 局部变量</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>全局变量和局部变量同名<br>在此情况下,局部环境中只会使用局部变量,忽略同名的全局变量</p>
+<h2 id="2-3-内部函数"><a href="#2-3-内部函数" class="headerlink" title="2.3 内部函数"></a>2.3 内部函数</h2><p>在函数内部声明的函数就是内部函数<br>特征:<br>1) 内部函数在函数内部可以访问<br>2) 内部函数的调用必须在定义内部函数之后<br>3) 内部函数不可以在函数外部调用<br>4) 本质上内部函数等同于内部变量  </p>
+<h2 id="2-4-闭包"><a href="#2-4-闭包" class="headerlink" title="2.4 闭包"></a>2.4 闭包</h2><p>闭包就是将函数内部的局部变量或者内部函数,弄到函数外,并且可以正常使用的特殊方法.突破了局部作用域的限制!<br>注意:闭包少用!<br>闭包格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def 外层函数()：</span><br><span class="line">	局部变量</span><br><span class="line">	局部变量</span><br><span class="line"></span><br><span class="line">   def 内部函数()：</span><br><span class="line">		pass</span><br><span class="line">	return (局部变量，局部变量...内部函数,内部函数...)</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-5-nonlocal关键字"><a href="#2-5-nonlocal关键字" class="headerlink" title="2.5 nonlocal关键字"></a>2.5 nonlocal关键字</h2><p>nonlocal的作用是声明当前变量不是当前函数内部的变量，他有可能是当前函数的外部变量（不是全局变量）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def 外部函数()</span><br><span class="line"></span><br><span class="line">    局部变量</span><br><span class="line"></span><br><span class="line">    def 内部函数（）:</span><br><span class="line"></span><br><span class="line">        nonlocal 变量名#声明当前变量不是内部函数中的变量</span><br><span class="line"></span><br><span class="line">        其他代码...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 代码</span><br></pre></td></tr></table></figure>
+<h2 id="2-6-递归函数"><a href="#2-6-递归函数" class="headerlink" title="2.6 递归函数"></a>2.6 递归函数</h2><p>在函数中调用当前函数本身的函数就是递归函数。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def recursion(n):</span><br><span class="line">    #输出当前的n的值</span><br><span class="line">    print(n)</span><br><span class="line"></span><br><span class="line">    #判断n的值是否&gt;0,决定下一步操作</span><br><span class="line">    if n&gt;0:        #n&gt;0 在此调用当前函数digui，将n - 1放进去</span><br><span class="line">        recursion(n-1)</span><br><span class="line">    else:</span><br><span class="line">        #n&gt;0 为False 输出分隔线</span><br><span class="line">        print(&apos;------&apos;)</span><br><span class="line"></span><br><span class="line">    #再次输出n的值</span><br><span class="line">    print(n)</span><br></pre></td></tr></table></figure></p>
+<p>recursion(3)</p>
+<p>执行结果:</p>
+<pre><code>3 2 1 0 ----- 0 1 2 3 
+</code></pre>
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/python/">python</a>
+            
+        </div>
+        
+    </article>
+    
+    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+    
+        <div class="adsense_post_left">
+            
+    <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-4837253996935841" data-ad-slot="1712444257"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="adsense_post_right">
+            
+    <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-4837253996935841" data-ad-slot="6857083436"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <p>
+            
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4837253996935841" data-ad-slot="3228829614" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </p>
+    
+
+
+    
+    
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            var disqus_config = function () {
+                this.page.url = 'http://yoursite.com/2019/04/23/02.python的流程控制/';
+                this.page.identifier = '2019/04/23/02.python的流程控制/';
+            };
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, disqus_shortname = 'shuoit', s = d.createElement('script');
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+
+</div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about" title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助">帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="https://www.tangkunyin.com" target="_blank" rel="friend">DU</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input" spellcheck="false" type="text" autocomplete="off" placeholder="请输入查询关键词">
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '04/19/2019',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+            jsi_config.localSearch = {
+                dbPath: '/search.xml',
+                trigger: 'auto',
+                topN: '1',
+                unescape: 'false'
+            }
+        
+        SimpleCore.init(jsi_config);
+        
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+        
+    });
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":300,"height":500},"mobile":{"show":true}});</script></body>
+</html>
